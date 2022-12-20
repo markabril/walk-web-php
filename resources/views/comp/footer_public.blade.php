@@ -26,14 +26,14 @@
 					<li><a target="_blank" href="https://www.youtube.com/channel/UC75y6x0BKC-kyyyRPcHot7A"><i style="width:20px;" class="fab fa-youtube"></i> Youtube</a></li>
 					<li><a target="_blank" href="https://discord.com/invite/eM55mMFfGQ"><i style="width:20px;" class="fab fa-discord"></i> Discord</a></li>
 
-
-					
-<!-- <li><a href="https://play.google.com/store/apps/details?id=com.light.walkonlinedev"></a></li> -->
-
-
-
 				</ul>
 			</small>
+		</div>
+		<div class="col-sm-12 mt-3 mb-3">
+			<center>
+				<h6>LEGAL</h6>
+				<small><a class="ml-3 mr-3" href="{{ route('goto_terms') }}">Terms & Conditions</a> <a class="ml-3 mr-3" href="{{ route('goto_privacypolicy') }}">Privacy Policy</a></small>
+			</center>
 		</div>
 	</div>
 	</div>

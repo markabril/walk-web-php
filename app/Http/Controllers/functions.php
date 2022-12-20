@@ -35,6 +35,13 @@ class functions extends Controller {
 		return view('contactus');
 	}
 
+	public function goto_terms(){
+		return view('doc_termsandcond');
+	}
+	public function goto_privacypolicy(){
+		return view('doc_privacypolicy');
+	}
+
 
 
 }

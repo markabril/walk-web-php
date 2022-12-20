@@ -1,0 +1,103 @@
+html, body {
+	margin:0;
+	padding:0;
+}
+
+
+.profile {
+    background-color: transparent;
+    border:0;
+}
+
+.dropdown-toggle::after {
+	display: none !important;
+}
+
+
+.slider1, .slider2, .slider3, .slider4 {
+	position:absolute;
+	top:-2px;
+	right:0;
+	vw: 100%;
+	vh: 100%;
+	z-index:1050;
+	width:750px;
+	height:100%;
+}
+
+td, button, .nav-pill {
+    font-size: .85em !important;
+}
+
+
+
+.input-group-prepend span, label {
+	font-size: .9em;
+	font-weight: 400;
+}
+
+.btn-primary {
+    background-color:#487eb0 !important;
+    border: 0;
+    color: #fff !important;
+}
+
+.dropup {
+	display: none;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.content-slider {
+		width: 100% !important;
+	}
+	
+	.align-self-baseline {
+		left:-2px;
+		min-height: 14%;
+	}
+	
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    
+}
+
+.loading_indicator{
+    /*display: block;*/
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: white;
+    background: url("{{ asset('images/loading.gif') }}");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 180px auto;
+    background-color: white;
+    animation-name: poptop;
+    animation-duration: 0.5s;
+}
+.cmcar{
+margin-bottom: 20px;
+}

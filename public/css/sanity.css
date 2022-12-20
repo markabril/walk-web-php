@@ -295,7 +295,7 @@ right: 0;
 position: absolute;
 margin: auto;
 margin-bottom: 100px;
-
+transform-style: preserve-3d;
 }
 
 .bg_separator{

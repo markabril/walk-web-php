@@ -122,9 +122,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 			<div class="separator-gold-center mt-2 mb-5"></div>
 		</center>
 		</div>
-		<div class="col-md-12">
-			<div class="row" style="perspective: 1000px;">
-				<div class="col-md-3">
+		<div class="col-md-12" >
+			<div class="row" >
+				<div class="col-md-3" style="perspective: 1000px;">
 				<div data-toggle="modal" data-target="#mdl_swordsman" style='transform:rotatey(30deg) rotatex(10deg); background-image: url(<?php echo e(asset('photos/transparents/ff_swordsman.png')); ?>)' class="char_holder">
 			<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="<?php echo e(asset('photos/icons/swordsman.png')); ?>" alt="swordsman" border="0">
@@ -132,7 +132,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 			</div>
 			</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3" style="perspective: 1000px;">
 				<div  data-toggle="modal" data-target="#mdl_shaman" style='transform:rotatey(30deg)  rotatex(10deg); background-image: url(<?php echo e(asset('photos/transparents/ff_shaman.png')); ?>)' class="char_holder">
 				<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="<?php echo e(asset('photos/icons/shaman.png')); ?>" alt="swordsman" border="0">
@@ -140,7 +140,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 			</div>
 			</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3" style="perspective: 1000px;">
 				<div  data-toggle="modal" data-target="#mdl_brawler" style='transform:rotatey(-30deg)  rotatex(10deg); background-image: url(<?php echo e(asset('photos/transparents/ff_brawler.png')); ?>)' class="char_holder">
 				<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="<?php echo e(asset('photos/icons/brawler.png')); ?>" alt="swordsman" border="0">
@@ -148,7 +148,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 			</div>
 			</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3" style="perspective: 1000px;">
 				<div  data-toggle="modal" data-target="#mdl_archer" style='transform:rotatey(-30deg)  rotatex(10deg); background-image: url(<?php echo e(asset('photos/transparents/ff_archer.png')); ?>)' class="char_holder">
 				<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="<?php echo e(asset('photos/icons/archer.png')); ?>" alt="swordsman" border="0">

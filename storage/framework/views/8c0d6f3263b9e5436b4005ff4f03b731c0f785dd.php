@@ -3,6 +3,7 @@
    <head>
       <title><?php echo $__env->yieldContent('title'); ?></title>
       <meta charset='utf-8'>
+      <meta property=’og:image’ content="<?php echo e(asset('photos/art/thumb.jpg')); ?>"/>
   <meta name="description" content="WALK ONLINE MOBILE is Is a free-to-play mobile Massively Multiplayer Online Role Playing Game(MMORPG). A 3d game which offers PvP, Party, Trading System and more. Players can quickly get set up to play a with other players in real time.">
   <meta name="keywords" content="MMORPG, Walk Online, WOM, CW, Mobile Game, Massively Multiplayer Online Role Playing Game. EGC, Extreme Unreal Technology Inc.,">
   <meta name="author" content="Virmil Talattad">

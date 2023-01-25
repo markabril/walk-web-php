@@ -43,7 +43,7 @@ We are on the brink of a global energy crisis.
 
 The confidential message between the world committees got leaked to the public. The Issue of food scarcity, after five years, and the overuse of power plants and reactors that posed a threat to health problems caused doubts in the populace of the (UGG) United Global Government. Dormant enemies of the state began to rise; disarray in the outlying regions started to collapse. The United Global Government is ready for its council to solve yet another problem. All were silent. A mysterious voice raised its way to the ears of the committee.
 
-"World is at its peak, Mr. Presidents. Our resources cannot reproduce, the power generators pollute our lands, the people are in disarray, and we face mass extinction!"  An unfamiliar voice said.
+"World is at its peak, Presidents. Our resources cannot reproduce, the power generators pollute our lands, the people are in disarray, and we face mass extinction!"  An unfamiliar voice said.
 The council looked down in despair. The mysterious figure unfolded its face; it was General Lakaw; he strolled to the center of the committee. 
 
 “It was General Lakaw of KAF (Kalaw Armed Forces); the KAF got decommissioned after the UGG successfully united the entire world through their 4Ps (Persuasion, Proposal, and Peace Project) last year. Peace fractured war and the military lost its purpose. General Lakaw vanished with its élite forces and turned underground. " Head Councilor Karlos Calderon stated.

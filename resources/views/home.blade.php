@@ -14,6 +14,21 @@ WALK Online - Mobile MMORPG
 		border:  1px solid rgba(255, 255, 255, 0.3);
 		margin-bottom: 40px;
 	}
+	.more{
+		display:none;
+	}
+	.hackathonbg{
+		background-image : url("{{ asset('photos/poster/flagger.png') }}") !important;
+		border-top: 1px solid rgba(255,255,255,0.3);
+		border-bottom: 1px solid rgba(255,255,255,0.3);
+		background-repeat: no-repeat;
+		box-shadow: 0px 0px 20px black;
+		display: block;
+		margin-top: -3px !important;
+		background-size: cover;
+		background-color: black;
+		background-position: center;
+	}
 </style>
 @include('comp.header_public')
 
@@ -74,10 +89,10 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 			<h5 class="mb-5 readable text-muted"><span class="littext">WALK ONLINE</span> is a mobile MMORPG made by Filipino developers. A 3D game that offers PvP, Party, Hackathon, Quests & Special Events based on the Philippine setting. So, what are you waiting for? Explore the thrilling adventures now!</h5>
 			</center>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-12" style="margin-bottom:100px;">
 			<center>
 				<div class="separator-blue-center mb-5"></div>
-				<h3>WELCOME TO THE<br><b class="littext" style="letter-spacing: 10px !important; font-size: 60px !important;">UNIVERSITIES!</b></h3>
+				<h5>WELCOME TO THE<br><b class="littext" style="letter-spacing: 10px !important; font-size: 30px !important;">UNIVERSITIES!</b></h5>
 				<div class="separator-blue-center mt-5 mb-5"></div>
 			</center>
 			<div class="card-deck">
@@ -115,7 +130,149 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 					</div>
 				</div>
 			</div>
-		</div>
+
+
+
+			</div>
+</div>
+</div>
+
+</div>
+
+		
+
+
+
+
+<div class="container-fluid hackathonbg" style="
+margin-bottom:100px;
+margin:0px !important; overflow:hidden;">
+<div class="container" >
+<div class="row mt-5 mb-5">
+<div class="col-sm-6">
+</div>
+
+<div class="col-sm-6">
+<div class="row ">
+
+<div class="col-sm-12">
+<center>
+
+<h6 class="mb-3"><small class="text-warning">the January 21,2023</small><br><i class="fas fa-trophy"></i> HACKATHON WINNERS</h6>
+<div class="separator-gold-center mb-3"></div>
+</center>
+</div>
+
+<div class="col-sm-6">
+
+	<small class="m-0 p-0">PHILIPPINES</small>
+
+
+	<div class="card card-primary mb-4" style="height: 64px;">
+<div class="card-body">
+<center>
+<h6 class="mb-0 pb-0">
+BuraotGaming2
+<br>
+<img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -30px;">
+</h6>
+</center>
+</div>
+	</div>
+
+
+
+	<div class="card card-danger mb-4" style="height: 64px;">
+<div class="card-body">
+<center>
+<h6 class="mb-0 pb-0">
+SELECTiON
+<br>
+<img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -30px;">
+</h6>
+</center>
+</div>
+	</div>
+
+
+	<div class="card card-warning mb-4" style="height: 64px;">
+<div class="card-body">
+<center>
+<h6 class="mb-0 pb-0">
+BOSS
+<br>
+<img loading="lazy" src="{{ asset('photos/icons/sm_peli.png') }}" style="width: 40px; margin-bottom: -30px;">
+</h6>
+</center>
+</div>
+	</div>
+
+</div>
+
+<div class="col-sm-6">
+
+	<small class="m-0 p-0">INTERNATIONAL</small>
+
+
+	<div class="card card-primary mb-4" style="height: 64px;">
+<div class="card-body">
+<center>
+<h6 class="mb-0 pb-0">
+SPERMCLUBxTHAIL
+<br>
+<img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -30px;">
+</h6>
+</center>
+</div>
+	</div>
+
+
+
+	<div class="card card-danger mb-4" style="height: 64px;">
+<div class="card-body">
+<center>
+<h6 class="mb-0 pb-0">
+SperMxClub
+<br>
+<img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -30px;">
+</h6>
+</center>
+</div>
+	</div>
+
+
+	<div class="card card-warning mb-4" style="height: 64px;">
+<div class="card-body">
+<center>
+<h6 class="mb-0 pb-0">
+RAMPAGE2
+<br>
+<img loading="lazy" src="{{ asset('photos/icons/sm_peli.png') }}" style="width: 40px; margin-bottom: -30px;">
+</h6>
+</center>
+</div>
+	</div>
+
+</div>
+<div class="col-sm-12">
+<center>
+<div class="separator-gold-center mb-2 mt-3"></div>
+	<small>
+	<i>In everything we do, there's a winner and a loser.<br><strong>-Urban Meyer</strong></i>
+	</small>
+</center>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+			<div class="container-fluid" style="background-color: #182330;   overflow:hidden;">
+	<div class="container mt-5"  >
+	<div class="row">
+
 		<div class="col-md-12">
 		<center>
 		<div class="separator-gold-center mb-2 mt-5"></div>
@@ -197,36 +354,79 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 				<div class="separator-blue-left-thin mb-3"></div>
 			<p class="readable">Parties are groups of players, that can consist of two to eight players. Players can also help each other to reach their personal goals faster.</p>
 		</div>
-<div class="col-sm-12">
+
+<div class="col-sm-12 more">
 	<br>
 		<br>
 </div>
-		<div class="col-md-6">
+		<div class="col-md-6 more">
 			<img src="{{ asset('photos/screenshots/3.jpg') }}" loading="lazy" class="img_screenshots">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 more">
 			<h5 class="littext">In-Game Friend</h5>
 				<div class="separator-blue-left-thin mb-3"></div>
 			<p class="readable">Do you want to make friends in the game? Worry not for you can add or remove them in your friend list.</p>
 		</div>
-<div class="col-sm-12">
+<div class="col-sm-12 more">
 	<br>
 		<br>
 </div>
-		<div class="col-md-6">
+
+		<div class="col-md-6 more">
 			<img src="{{ asset('photos/screenshots/20.jpg') }}" loading="lazy" class="img_screenshots">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 more">
 			<h5 class="littext">Student Hackathon</h5>
 				<div class="separator-blue-left-thin mb-3"></div>
 			<p class="readable">Hackathon is one of the main events of Walk Online Mobile where various student organizations fight each other to win amazing rewards! Join every Wednesday and Saturday at 7:00 pm and see for yourself how thrilling and exciting this Hackathon is!</p>
 		</div>
-		<div class="col-sm-12 mt-5 mb-5">
+
+		<div class="col-sm-12 more">
+	<br>
+		<br>
 </div>
 
+		<div class="col-md-6 more">
+			<img src="{{ asset('photos/screenshots/21.jpg') }}" loading="lazy" class="img_screenshots">
+		</div>
+		<div class="col-md-6 more">
+			<h5 class="littext">Kahangturan Event</h5>
+				<div class="separator-blue-left-thin mb-3"></div>
+			<p class="readable">Here's a new & special event in the game! Join this event on Tuesdays at 9:00 pm to level up faster. But beware, this won't be easy, for you will encounter new and strong mobs here!</p>
+		</div>
 
+
+		<div class="col-md-12 showmore">
+			<center>
+			<button class="btn btn-primary" onclick="action_showHideFeatures(this)"><i class="fas fa-chevron-down"></i> See all features</button>
+			</center>
+		</div>
+
+
+		<div class="col-sm-12 mt-5 mb-5">
+</div>
+<div class="col-sm-12 mb-4">
+
+	<div class="card card-simple">
+
+<div style="
+width: 100%; 
+background-image: url({{ asset('photos/poster/tutorials.jpg')}});
+background-size:cover;
+background-repeat: no-repeat;
+">
+
+<div class="card-body">
+<h3 class="littext">WOM TUTORIAL VIDEOS</h3>
+<div class="separator-gold-left mb-4"></div>
+<h5 class="readable">Learn and discover the classic and new features related to Walk Online Mobile here</h5>
+<a class="btn btn-warning btn-lg mb-4 mt-4" target="_blank" href="https://www.youtube.com/watch?v=CpuVuoc9jTg&list=PLLoAg0RFTjPv5mWACzV5WdX8LDHFId-CB">Discover</a>
+</div>
+</div>
+
+	</div>
+</div>
 		<div class="col-sm-6">
-			
 
 
 				<div class="card card-simple" style="margin: auto;">
@@ -266,7 +466,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 									<div class="separator-gold-left mb-4"></div>
 					<h5 class="readable" style="height: 100px;">Get your exclusive Walk Online Mobile hoodies and more from our new Walk Online Merch Store!</h5>
 
-					<a class="btn btn-warning btn-lg mb-4 mt-4" data-toggle="modal" data-target="#mdl_maintenance">Shop Now</a>
+					<a class="btn btn-primary btn-lg mb-4 mt-4" data-toggle="modal" data-target="#mdl_maintenance">Shop Now</a>
 							</div>
 					</div>
 				</div>
@@ -425,9 +625,7 @@ The United Jewel Sellers Bank (U.J.S. Bank) that funds the Fiery Emerald Univers
 	  <div class="row">
 			  		<div class="col-md-4">
 			  			<div style='background-image: url({{ asset('photos/transparents/ff_shaman.png') }})' class="char_holder">
-			  			
-			  					
-			  			
+
 			  			</div>
 			  		</div>
 			  		<div class="col-md-8">
@@ -541,5 +739,21 @@ The United Jewel Sellers Bank (U.J.S. Bank) that funds the Fiery Emerald Univers
     </div>
   </div>
 </div>
+
+
+<script>
+	var isFeaturesHidden = true;
+	function action_showHideFeatures(controlObj){
+		if (isFeaturesHidden){
+			$(controlObj).html("<i class='fas fa-chevron-up'></i> Show Less");
+			isFeaturesHidden = false;
+			$(".more").show();
+		}else{
+			$(".more").hide();
+			isFeaturesHidden = true;
+			$(controlObj).html("<i class='fas fa-chevron-down'></i> See all Features");
+		}
+	}
+</script>
 
 @endsection

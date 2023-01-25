@@ -16,6 +16,7 @@
           <i class="far fa-compass littext"></i> Explore
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('goto_story') }}"><i class="fas fa-book"></i> Lore</a>
           <a class="dropdown-item" href="{{ route('goto_team') }}"><i class="fas fa-users"></i> Join our Team</a>
           <a class="dropdown-item" href="mailto: support@egcextremeunrealtechnology.com"><i class="far fa-handshake-alt"></i> Partner with Us</a>
           <a class="dropdown-item" href="{{ route('goto_aboutus') }}"><i class="far fa-scroll"></i> About Us</a>

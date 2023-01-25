@@ -42,6 +42,16 @@ class functions extends Controller {
 		return view('doc_privacypolicy');
 	}
 
+	public function fly_story(){
+		return view('doc_storyindex');
+	}
+
+	public function fly_lore_c1(){
+		return view('doc_story_c1');
+	}
+
+	
+
 
 
 }

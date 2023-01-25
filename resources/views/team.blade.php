@@ -178,18 +178,14 @@ width: 100%;
 				</center>
 			</div>
 
-
-<div class="col-md-4">
-					
-					<center> 
-						<img src="{{ asset('photos/team/abril_c.png') }}" loading="lazy" class="propic">
-						<h5 class="mt-3">Mark Anthony Abril</h5>
-						<p class="readable">Web Developer</p>
-				</center>
-			</div>
-
-
-
+	<div class="col-md-4">			
+		<center> 
+				<img src="{{ asset('photos/team/abril_c.png') }}" loading="lazy" class="propic">
+				<h5 class="mt-3">Mark Anthony Abril</h5>
+				<p class="readable">Web Developer</p>
+		</center> 
+	</div>
+	
 <div class="col-md-4">
 					
 					<center> 
@@ -343,7 +339,7 @@ experienced applicants are welcome
 
 		<div class="card card-primary text-light readable">
 		<div class="card-body">
-		<p class="mb-0">Send your application to <a href="mailto: hr@egcextremeunrealtechnology.com">hr@egcextremeunrealtechnology.com</a</p>
+		<p class="mb-0">Send your application to <a href="mailto: hr@egcextremeunrealtechnology.com">hr@egcextremeunrealtechnology.com</a></p>
 		</div>
 		</div>
 
@@ -375,7 +371,7 @@ applicants are welcome
 
 		<div class="card card-primary text-light readable">
 		<div class="card-body">
-		<p class="mb-0">Send your application to <a href="mailto: hr@egcextremeunrealtechnology.com">hr@egcextremeunrealtechnology.com</a</p>
+		<p class="mb-0">Send your application to <a href="mailto: hr@egcextremeunrealtechnology.com">hr@egcextremeunrealtechnology.com</a></p>
 		</div>
 		</div>
 

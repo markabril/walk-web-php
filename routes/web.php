@@ -20,3 +20,5 @@ Route::get("/faq",['uses'=>'functions@fly_faq','as'=>'goto_faq']);
 Route::get("/contactus",['uses'=>'functions@fly_contactus','as'=>'goto_contactus']);
 Route::get("/termsandconditions",['uses'=>'functions@goto_terms','as'=>'goto_terms']);
 Route::get("/privacypolicy",['uses'=>'functions@goto_privacypolicy','as'=>'goto_privacypolicy']);
+Route::get("/storymode",['uses'=>'functions@fly_story','as'=>'goto_story']);
+Route::get("/lorechapter1",['uses'=>'functions@fly_lore_c1','as'=>'goto_lore_c1']);

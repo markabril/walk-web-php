@@ -1,4 +1,4 @@
-
+<img src="<?php echo e(asset('photos/art/thumb.jpg')); ?>" style="margin-top: -1000px;">
   <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container">
   <a class="navbar-brand littext" href="#">W<small>ALK</small> O<small>NLINE</small> M<small>OBILE</small></a>

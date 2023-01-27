@@ -320,7 +320,7 @@ RAMPAGE2
 			<div class="separator-gold-center mt-5" style="margin-bottom: 15vh;"></div>
 		</div>
 		<div class="col-md-6">
-			<img src="<?php echo e(asset('photos/screenshots/8.jpg')); ?>" loading="lazy" class="img_screenshots">
+			<img src="<?php echo e(asset('photos/screenshots/8.jpeg')); ?>" loading="lazy" class="img_screenshots">
 		</div>
 		<div class="col-md-6">
 			<h5 class="littext">Student Organization</h5>
@@ -332,7 +332,7 @@ RAMPAGE2
 		<br>
 </div>
 		<div class="col-md-6">
-			<img src="<?php echo e(asset('photos/screenshots/5.jpg')); ?>" loading="lazy" class="img_screenshots">
+			<img src="<?php echo e(asset('photos/screenshots/5.jpeg')); ?>" loading="lazy" class="img_screenshots">
 		</div>
 		<div class="col-md-6">
 			
@@ -346,7 +346,7 @@ RAMPAGE2
 		<br>
 </div>
 		<div class="col-md-6">
-				<img src="<?php echo e(asset('photos/screenshots/2.jpg')); ?>" loading="lazy" class="img_screenshots">
+				<img src="<?php echo e(asset('photos/screenshots/2.jpeg')); ?>" loading="lazy" class="img_screenshots">
 		</div>
 		<div class="col-md-6">
 			<h5 class="littext">Party</h5>
@@ -359,7 +359,7 @@ RAMPAGE2
 		<br>
 </div>
 		<div class="col-md-6 more">
-			<img src="<?php echo e(asset('photos/screenshots/3.jpg')); ?>" loading="lazy" class="img_screenshots">
+			<img src="<?php echo e(asset('photos/screenshots/3.jpeg')); ?>" loading="lazy" class="img_screenshots">
 		</div>
 		<div class="col-md-6 more">
 			<h5 class="littext">In-Game Friend</h5>
@@ -372,7 +372,7 @@ RAMPAGE2
 </div>
 
 		<div class="col-md-6 more">
-			<img src="<?php echo e(asset('photos/screenshots/20.jpg')); ?>" loading="lazy" class="img_screenshots">
+			<img src="<?php echo e(asset('photos/screenshots/20.jpeg')); ?>" loading="lazy" class="img_screenshots">
 		</div>
 		<div class="col-md-6 more">
 			<h5 class="littext">Student Hackathon</h5>
@@ -386,7 +386,7 @@ RAMPAGE2
 </div>
 
 		<div class="col-md-6 more">
-			<img src="<?php echo e(asset('photos/screenshots/21.jpg')); ?>" loading="lazy" class="img_screenshots">
+			<img src="<?php echo e(asset('photos/screenshots/21.jpeg')); ?>" loading="lazy" class="img_screenshots">
 		</div>
 		<div class="col-md-6 more">
 			<h5 class="littext">Kahangturan Event</h5>

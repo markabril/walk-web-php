@@ -22,3 +22,11 @@ Route::get("/termsandconditions",['uses'=>'functions@goto_terms','as'=>'goto_ter
 Route::get("/privacypolicy",['uses'=>'functions@goto_privacypolicy','as'=>'goto_privacypolicy']);
 Route::get("/storymode",['uses'=>'functions@fly_story','as'=>'goto_story']);
 Route::get("/lorechapter1",['uses'=>'functions@fly_lore_c1','as'=>'goto_lore_c1']);
+
+//admin pages
+
+Route::get("/admin",['uses'=>'functions@fly_admin','as'=>'goto_admin']);
+Route::get("/admindashboard",['uses'=>'functions@fly_admindashboard','as'=>'goto_admindashboard']);
+
+//functionalities of admin
+Route::post("/loginattempt",['uses'=>'functions@look_loginadmin','as'=>'stole_loginadmin']);

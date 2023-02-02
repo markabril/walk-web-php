@@ -158,7 +158,7 @@ margin:0px !important; overflow:hidden;">
 <div class="col-sm-12">
 <center>
 
-<h6 class="mb-3"><small class="text-warning">the January 21,2023</small><br><i class="fas fa-trophy"></i> HACKATHON WINNERS</h6>
+<h6 class="mb-3"><small class="text-warning">the February 1,2023</small><br><i class="fas fa-trophy"></i> HACKATHON WINNERS</h6>
 <div class="separator-gold-center mb-3"></div>
 </center>
 </div>
@@ -172,7 +172,7 @@ margin:0px !important; overflow:hidden;">
 <div class="card-body">
 <center>
 <h6 class="mb-0 pb-0">
-BuraotGaming2
+DropOut2
 <br>
 <img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -30px;">
 </h6>
@@ -186,7 +186,7 @@ BuraotGaming2
 <div class="card-body">
 <center>
 <h6 class="mb-0 pb-0">
-SELECTiON
+MEKANISMxII
 <br>
 <img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -30px;">
 </h6>
@@ -199,7 +199,7 @@ SELECTiON
 <div class="card-body">
 <center>
 <h6 class="mb-0 pb-0">
-BOSS
+BIOHAZARD3 
 <br>
 <img loading="lazy" src="{{ asset('photos/icons/sm_peli.png') }}" style="width: 40px; margin-bottom: -30px;">
 </h6>
@@ -218,7 +218,7 @@ BOSS
 <div class="card-body">
 <center>
 <h6 class="mb-0 pb-0">
-SPERMCLUBxTHAIL
+SperMxClub
 <br>
 <img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -30px;">
 </h6>
@@ -232,7 +232,7 @@ SPERMCLUBxTHAIL
 <div class="card-body">
 <center>
 <h6 class="mb-0 pb-0">
-SperMxClub
+SPERMCLUBxTHAILAND
 <br>
 <img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -30px;">
 </h6>
@@ -258,7 +258,7 @@ RAMPAGE2
 <center>
 <div class="separator-gold-center mb-2 mt-3"></div>
 	<small>
-	<i>In everything we do, there's a winner and a loser.<br><strong>-Urban Meyer</strong></i>
+	<i>When I was younger, I was taught that a winner never quits and a quitter never wins.<br><strong>-Angie Stone</strong></i>
 	</small>
 </center>
 </div>

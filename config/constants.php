@@ -2,9 +2,9 @@
 
 $portnum = "";
 
-define("WEBSERVICE_URL","http://localhost" . $portnum . "/philrocket_service/index.php");
+define("WEBSERVICE_URL","http://localhost" . $portnum . "/walk-online-webservice/index.php");
 
 define('TARGET_DIR', getcwd());
-define("PKEY","phlrcktvrml");
+define("PKEY","walkeregc2023");
 
 ?>

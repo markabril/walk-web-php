@@ -7,7 +7,6 @@ WALK Online - Mobile MMORPG
 	.download_img{
 		height: 50px;
 	}
-
 	.img_screenshots{
 		width:100%;
 		border-radius: 6px;
@@ -29,11 +28,28 @@ WALK Online - Mobile MMORPG
 		background-color: black;
 		background-position: center;
 	}
+	.main_promo{
+		background-color: gray;
+		position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  box-shadow: 0px 0px 10px black;
+  overflow:hidden;
+  border-radius: 12px;
+	}
+	.main_promo_inner{
+		position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+	}
 </style>
 @include('comp.header_public')
 
 	<div class="banner_grande" style="
-	background:url({{ asset('photos/art/defender.png') }});
+
 
 	display: block;
 	position:fixed;
@@ -82,10 +98,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 	
 	<div class="row">
 		<div class="col-md-12">
-			<center>
-			<img src="{{ asset('photos/icons/icon_walkonlinesingle.png') }}" class="mb-5" alt="wlogo" border="0">
+				<div class="main_promo mb-3">
+<div class="main_promo_inner">
 
-			<p><img src="{{ asset('photos/transparents/walkphone.png') }}" loading="lazy" style="width:90%;"></p>
+</div>
+</div>
+			<center>
+
 			<h5 class="mb-5 readable text-muted"><span class="littext">WALK ONLINE</span> is a mobile MMORPG made by Filipino developers. A 3D game that offers PvP, Party, Hackathon, Quests & Special Events based on the Philippine setting. So, what are you waiting for? Explore the thrilling adventures now!</h5>
 			</center>
 		</div>
@@ -158,7 +177,7 @@ margin:0px !important; overflow:hidden;">
 <div class="col-sm-12">
 <center>
 
-<h6 class="mb-3"><small class="text-warning">the February 1,2023</small><br><i class="fas fa-trophy"></i> HACKATHON WINNERS</h6>
+<h6 class="mb-3"><small class="text-warning">the <span id='lbl_hackdate'></span></small><br><i class="fas fa-trophy"></i> Hackathon Champions of the Hour</h6>
 <div class="separator-gold-center mb-3"></div>
 </center>
 </div>
@@ -168,41 +187,41 @@ margin:0px !important; overflow:hidden;">
 	<small class="m-0 p-0">PHILIPPINES</small>
 
 
-	<div class="card card-primary mb-4" style="height: 64px;">
-<div class="card-body">
+	<div class="card card-primary mb-4" style="height: 44px;">
+<div class="card-body p-1">
 <center>
-<h6 class="mb-0 pb-0">
-DropOut2
+<small class="mb-0 pb-0">
+<span id="ph_ne"></span>
 <br>
-<img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -30px;">
-</h6>
+<img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -18px;">
+</small>
 </center>
 </div>
 	</div>
 
 
 
-	<div class="card card-danger mb-4" style="height: 64px;">
-<div class="card-body">
+	<div class="card card-danger mb-4" style="height: 44px;">
+<div class="card-body p-1">
 <center>
-<h6 class="mb-0 pb-0">
-MEKANISMxII
+<small class="mb-0 pb-0">
+<span id="ph_fe"></span>
 <br>
-<img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -30px;">
-</h6>
+<img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -18px;">
+</small>
 </center>
 </div>
 	</div>
 
 
-	<div class="card card-warning mb-4" style="height: 64px;">
-<div class="card-body">
+	<div class="card card-warning mb-4" style="height: 44px;">
+<div class="card-body p-1">
 <center>
-<h6 class="mb-0 pb-0">
-BIOHAZARD3 
+<small class="mb-0 pb-0">
+<span id="ph_peli"></span> 
 <br>
-<img loading="lazy" src="{{ asset('photos/icons/sm_peli.png') }}" style="width: 40px; margin-bottom: -30px;">
-</h6>
+<img loading="lazy" src="{{ asset('photos/icons/sm_peli.png') }}" style="width: 40px; margin-bottom: -18px;">
+</small>
 </center>
 </div>
 	</div>
@@ -214,41 +233,41 @@ BIOHAZARD3
 	<small class="m-0 p-0">INTERNATIONAL</small>
 
 
-	<div class="card card-primary mb-4" style="height: 64px;">
-<div class="card-body">
+	<div class="card card-primary mb-4" style="height: 44px;">
+<div class="card-body p-1">
 <center>
-<h6 class="mb-0 pb-0">
-SperMxClub
+<small class="mb-0 pb-0">
+<span id="int_ne"></span>
 <br>
-<img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -30px;">
-</h6>
+<img loading="lazy" src="{{ asset('photos/icons/sm_ne.png') }}" style="width: 50px; margin-bottom: -18px;">
+</small>
 </center>
 </div>
 	</div>
 
 
 
-	<div class="card card-danger mb-4" style="height: 64px;">
-<div class="card-body">
+	<div class="card card-danger mb-4" style="height: 44px;">
+<div class="card-body p-1">
 <center>
-<h6 class="mb-0 pb-0">
-SPERMCLUBxTHAILAND
+<small class="mb-0 pb-0">
+<span id="int_fe"></span>
 <br>
-<img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -30px;">
-</h6>
+<img loading="lazy" src="{{ asset('photos/icons/sm_fe.png') }}" style="width: 33px; margin-bottom: -18px;">
+</small>
 </center>
 </div>
 	</div>
 
 
-	<div class="card card-warning mb-4" style="height: 64px;">
-<div class="card-body">
+	<div class="card card-warning mb-4" style="height: 44px;">
+<div class="card-body p-1">
 <center>
-<h6 class="mb-0 pb-0">
-RAMPAGE2
+<small class="mb-0 pb-0">
+<span id="int_peli"></span>
 <br>
-<img loading="lazy" src="{{ asset('photos/icons/sm_peli.png') }}" style="width: 40px; margin-bottom: -30px;">
-</h6>
+<img loading="lazy" src="{{ asset('photos/icons/sm_peli.png') }}" style="width: 40px; margin-bottom: -18px;">
+</small>
 </center>
 </div>
 	</div>
@@ -257,9 +276,9 @@ RAMPAGE2
 <div class="col-sm-12">
 <center>
 <div class="separator-gold-center mb-2 mt-3"></div>
-	<small>
-	<i>When I was younger, I was taught that a winner never quits and a quitter never wins.<br><strong>-Angie Stone</strong></i>
-	</small>
+	<small id="hackmessage">
+	</small><br>
+	<small><a href="{{ route('goto_hackwinners') }}"><i class="fa-solid fa-arrow-right"></i> Hackathon Champions Legacy</a></small>
 </center>
 </div>
 
@@ -320,87 +339,10 @@ RAMPAGE2
 
 			<div class="separator-gold-center mt-5" style="margin-bottom: 15vh;"></div>
 		</div>
-		<div class="col-md-6">
-			<img src="{{ asset('photos/screenshots/8.jpeg') }}" loading="lazy" class="img_screenshots">
-		</div>
-		<div class="col-md-6">
-			<h5 class="littext">Student Organization</h5>
-				<div class="separator-blue-left-thin mb-3"></div>
-			<p class="readable">Organized Group of players that regularly play together. They can join in Hackathon Events and earn amazing rewards for the winning Guilds!</p>
-		</div>
-<div class="col-sm-12">
-	<br>
-		<br>
+		<div class="col-sm-12">
+	<div class="row" id="pnl_features">
+</div>		
 </div>
-		<div class="col-md-6">
-			<img src="{{ asset('photos/screenshots/5.jpeg') }}" loading="lazy" class="img_screenshots">
-		</div>
-		<div class="col-md-6">
-			
-
-					<h5 class="littext">In-Game Trading System</h5>
-						<div class="separator-blue-left-thin mb-3"></div>
-			<p class="readable">The Trading System is an awesome feature for player that allows them to exchange items with other players.</p>
-		</div>
-<div class="col-sm-12">
-	<br>
-		<br>
-</div>
-		<div class="col-md-6">
-				<img src="{{ asset('photos/screenshots/2.jpeg') }}" loading="lazy" class="img_screenshots">
-		</div>
-		<div class="col-md-6">
-			<h5 class="littext">Party</h5>
-				<div class="separator-blue-left-thin mb-3"></div>
-			<p class="readable">Parties are groups of players, that can consist of two to eight players. Players can also help each other to reach their personal goals faster.</p>
-		</div>
-
-<div class="col-sm-12 more">
-	<br>
-		<br>
-</div>
-		<div class="col-md-6 more">
-			<img src="{{ asset('photos/screenshots/3.jpeg') }}" loading="lazy" class="img_screenshots">
-		</div>
-		<div class="col-md-6 more">
-			<h5 class="littext">In-Game Friend</h5>
-				<div class="separator-blue-left-thin mb-3"></div>
-			<p class="readable">Do you want to make friends in the game? Worry not for you can add or remove them in your friend list.</p>
-		</div>
-<div class="col-sm-12 more">
-	<br>
-		<br>
-</div>
-
-		<div class="col-md-6 more">
-			<img src="{{ asset('photos/screenshots/20.jpeg') }}" loading="lazy" class="img_screenshots">
-		</div>
-		<div class="col-md-6 more">
-			<h5 class="littext">Student Hackathon</h5>
-				<div class="separator-blue-left-thin mb-3"></div>
-			<p class="readable">Hackathon is one of the main events of Walk Online Mobile where various student organizations fight each other to win amazing rewards! Join every Wednesday and Saturday at 7:00 pm and see for yourself how thrilling and exciting this Hackathon is!</p>
-		</div>
-
-		<div class="col-sm-12 more">
-	<br>
-		<br>
-</div>
-
-		<div class="col-md-6 more">
-			<img src="{{ asset('photos/screenshots/21.jpeg') }}" loading="lazy" class="img_screenshots">
-		</div>
-		<div class="col-md-6 more">
-			<h5 class="littext">Kahangturan Event</h5>
-				<div class="separator-blue-left-thin mb-3"></div>
-			<p class="readable">Here's a new & special event in the game! Join this event on Tuesdays at 9:00 pm to level up faster. But beware, this won't be easy, for you will encounter new and strong mobs here!</p>
-		</div>
-
-
-		<div class="col-md-12 showmore">
-			<center>
-			<button class="btn btn-primary" onclick="action_showHideFeatures(this)"><i class="fas fa-chevron-down"></i> See all features</button>
-			</center>
-		</div>
 
 
 		<div class="col-sm-12 mt-5 mb-5">
@@ -409,18 +351,18 @@ RAMPAGE2
 
 	<div class="card card-simple">
 
-<div style="
+<div id="bottommain_img" style="
 width: 100%; 
-background-image: url({{ asset('photos/poster/tutorials.jpg')}});
+background-position:center;
 background-size:cover;
 background-repeat: no-repeat;
 ">
 
 <div class="card-body">
-<h3 class="littext">WOM TUTORIAL VIDEOS</h3>
+<h3 class="littext" id="bottommain_title">(n/a)</h3>
 <div class="separator-gold-left mb-4"></div>
-<h5 class="readable">Learn and discover the classic and new features related to Walk Online Mobile here</h5>
-<a class="btn btn-warning btn-lg mb-4 mt-4" target="_blank" href="https://www.youtube.com/watch?v=CpuVuoc9jTg&list=PLLoAg0RFTjPv5mWACzV5WdX8LDHFId-CB">Discover</a>
+<h5 class="readable" id="bottommain_description">(n/a)</h5>
+<a class="btn btn-warning btn-lg mb-4 mt-4" id="bottommain_link" target="_blank" href="https://www.youtube.com/watch?v=CpuVuoc9jTg&list=PLLoAg0RFTjPv5mWACzV5WdX8LDHFId-CB">(n/a)</a>
 </div>
 </div>
 
@@ -433,15 +375,15 @@ background-repeat: no-repeat;
 					<div class="card-body">
 						<div class="row">
 					<div class="col-sm-4">
-							<img src="{{ asset('photos/poster/walklogo.png')}}" loading="lazy" style="width:100%; border-radius: 5px;">
+							<img id="bottomleft_img" src="" loading="lazy" style="width:100%; border-radius: 5px;">
 					</div>
 					<div class="col-sm-8">
 							<div class="mt-4 mb-4">
-							<h3><b class="littext" style="letter-spacing: 10px !important;">PLAY WITH US</b></h3>
+							<h3><b class="littext" style="letter-spacing: 10px !important;" id="bottomleft_title">(n/a)</b></h3>
 									<div class="separator-gold-left mb-4"></div>
-					<h5 class="readable" style="height: 100px;">Walk Online Mobile is now available on Google Play!</h5>
+					<h5 class="readable" style="height: 100px;" id="bottomleft_description">(n/a)</h5>
 
-					<a class="btn btn-primary btn-lg mb-4 mt-4" target="_blank" href="https://play.google.com/store/apps/details?id=com.light.walkonlinedev&hl=en&gl=US">Get it Now</a>
+					<a class="btn btn-primary btn-lg mb-4 mt-4" id="bottomleft_link" target="_blank" href="">(n/a)</a>
 							</div>
 					</div>
 				</div>
@@ -458,15 +400,15 @@ background-repeat: no-repeat;
 					<div class="card-body">
 						<div class="row">
 					<div class="col-sm-4">
-							<img src="{{ asset('photos/poster/walkmerch.png')}}" loading="lazy" style="width:100%; border-radius: 5px;">
+							<img id="bottomright_img" src="" loading="lazy" style="width:100%; border-radius: 5px;">
 					</div>
 					<div class="col-sm-8">
 							<div class="mt-4 mb-4">
-							<h3><b class="littext" style="letter-spacing: 10px !important;">AVAILABLE NOW!</b></h3>
+							<h3><b class="littext" style="letter-spacing: 10px !important;" id="bottomright_title">(n/a)</b></h3>
 									<div class="separator-gold-left mb-4"></div>
-					<h5 class="readable" style="height: 100px;">Get your exclusive Walk Online Mobile hoodies and more from our new Walk Online Merch Store!</h5>
+					<h5 class="readable" style="height: 100px;" id="bottomright_description">(n/a)</h5>
 
-					<a class="btn btn-primary btn-lg mb-4 mt-4" data-toggle="modal" data-target="#mdl_maintenance">Shop Now</a>
+					<a class="btn btn-primary btn-lg mb-4 mt-4" id="bottomright_link" href="#">(n/a)</a>
 							</div>
 					</div>
 				</div>
@@ -668,9 +610,7 @@ The United Jewel Sellers Bank (U.J.S. Bank) that funds the Fiery Emerald Univers
 	  <div class="row">
 			  		<div class="col-md-4">
 			  			<div style='background-image: url({{ asset('photos/transparents/ff_brawler.png') }})' class="char_holder">
-			  				
-			  					
-			  				
+			  			
 			  			</div>
 			  		</div>
 			  		<div class="col-md-8">
@@ -742,18 +682,115 @@ The United Jewel Sellers Bank (U.J.S. Bank) that funds the Fiery Emerald Univers
 
 
 <script>
-	var isFeaturesHidden = true;
-	function action_showHideFeatures(controlObj){
-		if (isFeaturesHidden){
-			$(controlObj).html("<i class='fas fa-chevron-up'></i> Show Less");
-			isFeaturesHidden = false;
-			$(".more").show();
-		}else{
-			$(".more").hide();
-			isFeaturesHidden = true;
-			$(controlObj).html("<i class='fas fa-chevron-down'></i> See all Features");
+	
+	function getAllData() {
+    return $.ajax({
+        type: "get",
+        url: "{{ route('stole_homecoverphoto') }}",
+        data: {_token: "{{ csrf_token() }}"},
+    })
+    .then(function(data) {
+        console.log("cover photo -->" + data);
+		data = JSON.parse(data);
+
+		if(data.length  != 0){
+			$(".banner_grande").css("background-image","url('" + data[0]["img"] + "')");
 		}
-	}
+	
+        return $.ajax({
+            type: "get",
+            url: "{{ route('stole_homehackathonwinners') }}",
+            data: {_token: "{{ csrf_token() }}"},
+        });
+    })
+    .then(function(data) {
+        console.log("hackathon winners -->" + data);
+
+
+		data = JSON.parse(data);
+
+		if(data.length  != 0){
+			$("#lbl_hackdate").html(data[0]["hackdate"]);
+
+
+			$("#ph_ne").html(data[0]["ph_ne"]);
+			$("#ph_fe").html(data[0]["ph_fe"]);
+			$("#ph_peli").html(data[0]["ph_peli"]);
+
+			$("#int_ne").html(data[0]["int_ne"]);
+			$("#int_fe").html(data[0]["int_fe"]);
+			$("#int_peli").html(data[0]["int_peli"]);
+
+
+			$("#hackmessage").html(data[0]["hackmsg"]);
+			
+		}else{
+			$("#lbl_hackdate, #ph_ne, #ph_fe, #ph_peli, #int_ne, #int_fe, #int_peli, #hackmessage ").html("(n/a)");
+		}
+
+
+
+        return $.ajax({
+            type: "get",
+            url: "{{ route('stole_homefeatures') }}",
+            data: {_token: "{{ csrf_token() }}"},
+        });
+    })
+    .then(function(data) {
+        console.log("features -->" + data);
+
+		$("#pnl_features").html(data);
+        return $.ajax({
+            type: "get",
+            url: "{{ route('stole_homebottompanel') }}",
+            data: {_token: "{{ csrf_token() }}"},
+        });
+    })
+    .then(function(data) {
+        console.log("bottoms -->" + data);
+
+		data = JSON.parse(data);
+
+		for(var i =0; i < data.length;i++){
+			switch(data[i]["cont_type"]){
+case "bottom_main":
+	$("#bottommain_img").css("background-image","url(" + data[i]["img"] + ")");
+		$("#bottommain_title").html(data[i]["title"]);
+		$("#bottommain_description").html(data[i]["description"]);
+		$("#bottommain_link").html(data[i]["btn_name"]);
+		$("#bottommain_link").prop("href",data[i]["link"]);
+	break;
+
+	case "bottom_left":
+		$("#bottomleft_img").prop("src",data[i]["img"]);
+		$("#bottomleft_title").html(data[i]["title"]);
+		$("#bottomleft_description").html(data[i]["description"]);
+		$("#bottomleft_link").html(data[i]["btn_name"]);
+		$("#bottomleft_link").prop("href",data[i]["link"]);
+break;
+
+
+case "bottom_right":
+	$("#bottomright_img").prop("src",data[i]["img"]);
+		$("#bottomright_title").html(data[i]["title"]);
+		$("#bottomright_description").html(data[i]["description"]);
+		$("#bottomright_link").html(data[i]["btn_name"]);
+		$("#bottomright_link").prop("href",data[i]["link"]);
+break;
+			}
+		}
+
+		
+
+		
+
+
+		
+    });
+}
+
+// call the function
+getAllData();
 </script>
 
 @endsection

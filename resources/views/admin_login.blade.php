@@ -1,8 +1,16 @@
+
 @extends('master.master_admin')
 @section('title')
 WOM Admin
 @endsection
 @section('contents')
+
+@if (session()->has('user_id'))
+<script>
+window.location.href="{{ route('goto_admindashboard') }}";
+</script>
+@endif
+
 	<div class="container">
       <center>
       <div class="card" style="text-align:left; margin-top:30vh; max-width: 350px;">
@@ -12,21 +20,29 @@ WOM Admin
         <div class="card-body">
             <div class="form-group">
                 <label>Username</label>
-                <input id="inp_username" class="form-control">
+                <input type="text" id="inp_username" class="form-control inplogin">
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input id="inp_password" class="form-control">
+                <input type="password" id="inp_password" class="form-control inplogin">
             </div>
         </div>
         <div class="card-footer">
-            <button onclick="login()" class="btn btn-primary btn-block">Login</button>
+            <button onclick="login()"  class="btn btn-primary btn-block">Login</button>
         </div>
         </div>
       </center>
     </div>
 
     <script>
+
+$(".inplogin").on("keyup", function(event) {
+  if (event.key === "Enter") {
+    login();
+  }
+});
+
+
         function login(){
             let inpname = $("#inp_username").val();
             let inpass = $("#inp_password").val();

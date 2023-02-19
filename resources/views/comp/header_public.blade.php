@@ -1,7 +1,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container">
-  <a class="navbar-brand littext" href="#">W<small>ALK</small> O<small>NLINE</small> M<small>OBILE</small></a>
+  <a class="navbar-brand littext" href="#"><a href=""><> W<small>ALK</small> O<small>NLINE</small> M<small>OBILE</small></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

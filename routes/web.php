@@ -74,6 +74,8 @@ Route::get("/gethomefeatures",['uses'=>'functions@look_homefeatures','as'=>'stol
 Route::get("/gethomebottompnl",['uses'=>'functions@look_homebottompanel','as'=>'stole_homebottompanel']);
 
 Route::get("/gethackwinhistory",['uses'=>'functions@look_gethackathonwinshistory','as'=>'stole_gethackathonwinshistory']);
+Route::get("/getlatestfeatured",['uses'=>'functions@look_latestfeatured','as'=>'stole_latestfeatured']);
+Route::get("/getfeturedhome",['uses'=>'functions@look_homefeatured','as'=>'stole_homefeatured']);
 
 
 

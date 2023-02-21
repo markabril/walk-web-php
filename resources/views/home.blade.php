@@ -3,54 +3,11 @@
 WALK Online - Mobile MMORPG
 @endsection
 @section('contents')
-<style>
-	.download_img{
-		height: 50px;
-	}
-	.img_screenshots{
-		width:100%;
-		border-radius: 6px;
-		border:  1px solid rgba(255, 255, 255, 0.3);
-		margin-bottom: 40px;
-	}
-	.more{
-		display:none;
-	}
-	.hackathonbg{
-		background-image : url("{{ asset('photos/poster/flagger.png') }}") !important;
-		border-top: 1px solid rgba(255,255,255,0.3);
-		border-bottom: 1px solid rgba(255,255,255,0.3);
-		background-repeat: no-repeat;
-		box-shadow: 0px 0px 20px black;
-		display: block;
-		margin-top: -3px !important;
-		background-size: cover;
-		background-color: black;
-		background-position: center;
-	}
-	.main_promo{
-		background-color: gray;
-		position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  box-shadow: 0px 0px 10px black;
-  overflow:hidden;
-  border-radius: 12px;
-	}
-	.main_promo_inner{
-		position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-	}
-</style>
 @include('comp.header_public')
 
+
+
 	<div class="banner_grande" style="
-
-
 	display: block;
 	position:fixed;
 	top: 0;
@@ -85,24 +42,36 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 				</h1>
 
 			</center>
-			<div class="container mt-5 shadowtext " style="opacity: 0.9; text-align:center;">
 	
-			</div>
 		</div>
 	</div>
 
 <div class="container_cover">
 
-	<img class="floaties" src="{{ asset('photos/transparents/pat1.png') }}" loading="lazy">
 	<div class="container mt-5"  >
+
+
+	<div class="main_promo mb-3 readable">
+<div class="main_promo_inner shadowtext p-5" style="text-align: left;">
 	
 	<div class="row">
-		<div class="col-md-12">
-				<div class="main_promo mb-3">
-<div class="main_promo_inner">
+
+<div class="col-sm-6">
+<p><h2 class="mb-0">Valentine Event</h2>
+<div class="separator-gold-left mb-0"></div>
+<span >See all the new features behind this masterpice! See all the new features behind this masterpice! See all the new features behind this masterpice!</span></p>
+	<button class="btn btn-primary">Explore</button>
+</div>
+	</div>
+	
+</div>
 
 </div>
-</div>
+
+
+	<div class="row">
+		<div class="col-md-12">
+			
 			<center>
 
 			<h5 class="mb-5 readable text-muted"><span class="littext">WALK ONLINE</span> is a mobile MMORPG made by Filipino developers. A 3D game that offers PvP, Party, Hackathon, Quests & Special Events based on the Philippine setting. So, what are you waiting for? Explore the thrilling adventures now!</h5>
@@ -155,15 +124,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 			</div>
 </div>
 </div>
-
 </div>
-
-		
-
-
-
-
 <div class="container-fluid hackathonbg" style="
+background-image : url('{{ asset('photos/poster/flagger.png') }}') !important;
 margin-bottom:100px;
 margin:0px !important; overflow:hidden;">
 <div class="container" >
@@ -540,7 +503,6 @@ The United Jewel Sellers Bank (U.J.S. Bank) that funds the Fiery Emerald Univers
 			  				<li>Heavy duty againts brawlers</li>
 			  				<li>Best paired with an archer class to fight against shamans</li>
 			  			</ul>
-
 			  				</div>
 			  			</div>
 			  			
@@ -702,33 +664,46 @@ The United Jewel Sellers Bank (U.J.S. Bank) that funds the Fiery Emerald Univers
             url: "{{ route('stole_homehackathonwinners') }}",
             data: {_token: "{{ csrf_token() }}"},
         });
+    }).then(function(data) {
+		console.log("hackathon winners -->" + data);
+
+
+data = JSON.parse(data);
+
+if(data.length  != 0){
+	$("#lbl_hackdate").html(data[0]["hackdate"]);
+
+
+	$("#ph_ne").html(data[0]["ph_ne"]);
+	$("#ph_fe").html(data[0]["ph_fe"]);
+	$("#ph_peli").html(data[0]["ph_peli"]);
+
+	$("#int_ne").html(data[0]["int_ne"]);
+	$("#int_fe").html(data[0]["int_fe"]);
+	$("#int_peli").html(data[0]["int_peli"]);
+
+
+	$("#hackmessage").html(data[0]["hackmsg"]);
+	
+}else{
+	$("#lbl_hackdate, #ph_ne, #ph_fe, #ph_peli, #int_ne, #int_fe, #int_peli, #hackmessage ").html("(n/a)");
+}
+
+
+
+
+        return $.ajax({
+            type: "get",
+            url: "{{ route('stole_homefeatured') }}",
+            data: {_token: "{{ csrf_token() }}"},
+        });
     })
     .then(function(data) {
-        console.log("hackathon winners -->" + data);
-
-
 		data = JSON.parse(data);
-
-		if(data.length  != 0){
-			$("#lbl_hackdate").html(data[0]["hackdate"]);
-
-
-			$("#ph_ne").html(data[0]["ph_ne"]);
-			$("#ph_fe").html(data[0]["ph_fe"]);
-			$("#ph_peli").html(data[0]["ph_peli"]);
-
-			$("#int_ne").html(data[0]["int_ne"]);
-			$("#int_fe").html(data[0]["int_fe"]);
-			$("#int_peli").html(data[0]["int_peli"]);
-
-
-			$("#hackmessage").html(data[0]["hackmsg"]);
-			
-		}else{
-			$("#lbl_hackdate, #ph_ne, #ph_fe, #ph_peli, #int_ne, #int_fe, #int_peli, #hackmessage ").html("(n/a)");
+		if(data.length != 0){
+			$(".main_promo").css("background-image","url(" + data[0]["img"] + ")");
 		}
-
-
+     
 
         return $.ajax({
             type: "get",

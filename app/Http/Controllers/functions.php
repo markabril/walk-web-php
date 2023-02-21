@@ -90,6 +90,21 @@ class functions extends Controller {
 		return view("hackwinhistory");
 	}
 	// functionality
+
+	public function look_homefeatured(){
+		$out = $this->send_get(["tag"=>"homefeatured"]);
+		if(count($out) != 0){
+			$out[0]["img"] = asset('bottom_img/' . $out[0]["img"]);
+		}
+		return json_encode($out);
+	}
+	public function look_latestfeatured(){
+		$out = $this->send_get(["tag"=>"latestfeatured"]);
+		if(count($out) != 0){
+			$out[0]["img"] = asset('bottom_img/' . $out[0]["img"]);
+		}
+		return json_encode($out);
+	}
 	public function look_gethackathonwinshistory(){
 		$out = $this->send_get(["tag"=>"gethackathonwinshistory"]);
 
@@ -103,12 +118,13 @@ class functions extends Controller {
 
 				$toecho .= "<h6 class='littext'>Former Champions</h6>"	;
 			}
+			$cocoa = ($i == 0 ? asset('photos/poster/award.jpg') : "")  ;
 
 			$toecho .= '
 			
-			<div class="card ' . ($i == 0 ? "card-warning" : "card-simple") . ' mb-3">
+			<div class="card ' . ($i == 0 ? "card-simple" : "card-simple") . ' mb-3" style="' . ($i == 0 ? "text-shadow: 0px 2px 10px black;" : "") . '">
         
-			<div class="card-body">
+			<div class="card-body" style="background: url(' . "'" .  $cocoa . "'" . '); background-size:cover; background-repeat:no-repeat; background-position: right;s+++++++++++++++++">
 				<div class="row">
 	
 					<div class="col-sm-12">

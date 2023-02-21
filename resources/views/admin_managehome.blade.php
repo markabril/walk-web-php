@@ -16,11 +16,28 @@ WOM Admin - Homepage Management
                             <div class="card mb-3">
                                 <div class="card-body">
                                 <p class="text-primary"><small>WEBSITE BODY</small></p>
-                            <h5>Cover Photo</h5>
+
+                                <div class="row">
+<div class="col-sm-6">
+<h5>Body Theme Photo</h5>
                             <div class="border mb-1" id="preview_lastestcoverphoto" style="background-size: cover; background-position:center; width: 100%; height: 40vh;">
 
                             </div>
                             <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdl_changecover">Change</button>
+</div>
+<div class="col-sm-6">
+<h5>Featured Information</h5>
+                            <div class="border mb-1" id="preview_featureimage" style="background-size: cover; background-position:center; width: 100%; height: 40vh;">
+                            </div>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" onclick="changeBottomPanelInputMode('0')" data-target="#mdl_bottomcontents">Change</button>
+
+</div>
+                                </div>
+                         
+
+                         
+
+
                                 </div>
                             </div>
                         </div>
@@ -222,6 +239,8 @@ WOM Admin - Homepage Management
 
 
 
+
+
 <script>
 var currFeatureId = "";
 var inputBottomMode = "";
@@ -273,11 +292,12 @@ function loadBottomPanels(){
     data: {_token: "{{ csrf_token() }}"},
     success: function(data){
      data = JSON.parse(data);
-;
+
      for(var i =0 ; i < data.length;i++){
         $("#" + data[i]["cont_type"] + "_title").html(data[i]["title"]);
         $("#" + data[i]["cont_type"] + "_description").html(data[i]["description"]);
      }
+     getLatestFeatured();
     }
   })
 }
@@ -333,6 +353,11 @@ $("#inp_bp_link").val() != "" && $("#inp_bp_btnname").val() != ""
 function changeBottomPanelInputMode(modeName){
 
  switch(modeName){
+  case "0":
+    $("#title_pnlname").html("Featured");
+    inputBottomMode = "featured";
+    getAvailableBottomInfo();
+    break;
   case "1":
     $("#title_pnlname").html("Main Bottom Panel");
     inputBottomMode = "bottom_main";
@@ -351,7 +376,7 @@ function changeBottomPanelInputMode(modeName){
  }
 }
 function loadallData(){
-  getLaterstCover(true);
+  getLatestFeatured(true);
 }
 
 function openDeleteFeature(controlObj){
@@ -402,7 +427,7 @@ if ( $('#coverFile')[0].files[0] != null &&  $('#coverFile')[0].files[0] != ""){
         say(data);
         $("#mdl_changecover").modal("hide");
         $("#coverFile").val("");
-        getLaterstCover();
+        getLatestCover();
         }
     });
 }else{
@@ -410,8 +435,31 @@ if ( $('#coverFile')[0].files[0] != null &&  $('#coverFile')[0].files[0] != ""){
 }
    
 });
+function getLatestFeatured(sequenced = false){
+  showload();
+    $.ajax({
+        url : "{{ route('stole_latestfeatured') }}",
+        type: "get",
+        data : {_token: "{{ csrf_token() }}"},
+        success: function (data){
+          hideload();
+            // say(data);
+            data = JSON.parse(data);
+            if (data.length != 0){
+                $("#preview_featureimage").css("background-image", "url(" + data[0]["img"] + ")");
+            }
 
-function getLaterstCover(sequenced = false){
+            if (sequenced){
+              getLatestCover(sequenced);
+            }
+        }
+    })
+}
+
+
+
+
+function getLatestCover(sequenced = false){
   showload();
     $.ajax({
         url : "{{ route('stole_latestCoverPhoto') }}",
@@ -495,7 +543,11 @@ function showAllFeatures(sequenced = false){
       hideload();
 
       if(sequenced == true){
-        loadBottomPanels();
+       
+        
+          loadBottomPanels();
+        
+       
       }
     }
   })

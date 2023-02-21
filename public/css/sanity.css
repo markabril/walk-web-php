@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+
+.download_img{
+	height: 50px;
+}
+.img_screenshots{
+	width:100%;
+	border-radius: 6px;
+	border:  1px solid rgba(255, 255, 255, 0.3);
+	margin-bottom: 40px;
+}
+.more{
+	display:none;
+}
+.hackathonbg{
+	border-top: 1px solid rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	background-repeat: no-repeat;
+	box-shadow: 0px 0px 20px black;
+	display: block;
+	margin-top: -3px !important;
+	background-size: cover;
+	background-color: black;
+	background-position: center;
+}
+.main_promo{
+	position: relative;
+width: 100%;
+padding-bottom: 56.25%;
+box-shadow: 0px 0px 50px rgba(0,0,0,0.5) !important;
+overflow:hidden;
+border-radius: 12px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+border: 1px solid gray;
+}
+.main_promo_inner{
+	position: absolute;
+bottom: 0;
+width: 100%;
+background: rgb(22,35,47);
+background: linear-gradient(90deg, rgba(22,35,47,1) 0%, rgba(255,255,255,0) 100%);
+}
+
 .readable{
 	font-family: Arimo !important;
 }

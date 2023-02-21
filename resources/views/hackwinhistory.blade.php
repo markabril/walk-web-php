@@ -9,8 +9,6 @@ WALK Online - Mobile MMORPG
      <div class="separator-gold-left mb-4"></div>
 
 
-
-
      <div id="winnerslist"  class="readable">
 
 

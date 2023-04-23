@@ -1,0 +1,96 @@
+
+.modal-content{
+    border-radius: 12px;
+}
+.modal{
+    overflow: auto;
+}
+.form-control{
+    border-radius: 12px;
+}
+.dropdown-menu{
+    border-radius: 12px;
+}
+.card{
+    border-radius: 12px;
+}
+@font-face {
+	font-family: 'sf';
+	src: url('fonts/sf.otf');
+	}
+
+body{
+    font-family: 'sf' !important;
+}
+pre{
+    font-family: 'sf' !important;
+}
+.btn-primary{
+    background-color: #027BFF;
+}
+.btn-danger{
+    background-color: #FE3B2F;
+}
+.btn-warning{
+    background-color: #FFCC00;
+}
+.btn-info{
+    background-color: #5AC8FB;
+}
+
+.text-primary{
+    color: #027BFF;
+}
+.text-danger{
+    color: #FE3B2F;
+}
+.text-warning{
+    color: #FFCC00;
+}
+.text-info{
+    color: #5AC8FB;
+}
+.modal-header{
+    border-bottom: 1px solid transparent !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.2px;
+}
+.card-header{
+    text-transform: uppercase !important;
+    border-bottom: 1px solid transparent !important;
+    background-color: transparent;
+    letter-spacing: 1.2px;
+}
+.card-footer{
+    border-top: 1px solid transparent !important;
+    background-color: transparent;
+}
+.modal-footer{
+    border-top: 1px solid transparent !important;
+    background-color: transparent;
+}
+.btn{
+    text-transform: uppercase !important;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing: 1.2px;
+    border-color: transparent !important;
+    
+}
+.table tr th{
+    font-size: 12px;
+    text-transform: uppercase !important;
+    letter-spacing: 1.2px;
+}
+label{
+    font-size: 12px;
+    text-transform: uppercase !important;
+    letter-spacing: 1.2px;
+}
+
+
+
+
+
+

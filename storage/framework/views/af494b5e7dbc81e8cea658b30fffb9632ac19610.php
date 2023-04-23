@@ -11,24 +11,28 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo e(route('goto_home')); ?>"><i class="fas fa-home littext"></i> Home</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="<?php echo e(route('goto_story')); ?>"><i class="fas fa-book littext"></i> Lore</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="<?php echo e(route('goto_news')); ?>"><i class="fa-solid fa-newspaper littext"></i> News</a>
+</li>
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="far fa-compass littext"></i> Explore
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="<?php echo e(route('goto_story')); ?>"><i class="fas fa-book"></i> Lore</a>
           <a class="dropdown-item" href="<?php echo e(route('goto_team')); ?>"><i class="fas fa-users"></i> Join our Team</a>
           <a class="dropdown-item" href="mailto: support@egcextremeunrealtechnology.com"><i class="far fa-handshake-alt"></i> Partner with Us</a>
           <a class="dropdown-item" href="<?php echo e(route('goto_aboutus')); ?>"><i class="far fa-scroll"></i> About Us</a>
-          <!--   <a class="dropdown-item" href="<?php echo e(route('goto_faq')); ?>"><i class="far fa-scroll"></i> Faq</a> -->
         </div>
       </li>
+
+  
         <li class="nav-item">
         <a class="nav-link" href="#thefooter"><i class="fas fa-phone littext"></i> Contact Us</a>
       </li>
-      <li class="nav-item">
-      <a class="nav-link" target="_blank" href="https://play.google.com/store/apps/details?id=com.light.walkonlinedev&hl=en&gl=US"><i class="littext fab fa-google-play"></i> Download Now</a>
-      </li>
+     
          
     </ul>
   </div>

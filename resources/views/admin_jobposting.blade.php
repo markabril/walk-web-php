@@ -6,23 +6,30 @@ WOM Admin - Job Posting
 @section('contents')
 @include('comp.header_admin')
 	<div class="container mt-4">
-    <h5>Job Posting</h5>
-       <button class="btn btn-primary" data-toggle="modal" data-target="#mdl_addjob">Post New</button>
+    <div class="card">
+    <div class="card-header">
+    <h5 class="card-title">Job Posting</h5>
+    </div>
+    <div class="card-body">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#mdl_addjob">Post New</button>
 
-       <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>Job Title</th>
-                <th>Short Description</th>
-                <th>Full Description</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="tbl_jobposting">
+<table class="table mt-3">
+ <thead>
+     <tr>
+         <th>Job Title</th>
+         <th>Short Description</th>
+         <th>Full Description</th>
+         <th>Status</th>
+         <th>Action</th>
+     </tr>
+ </thead>
+ <tbody id="tbl_jobposting">
 
-        </tbody>
-       </table>
+ </tbody>
+</table>
+    </div>
+    </div>
+      
     </div>
 
 

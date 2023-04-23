@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <title>@yield('title')</title>
-  
+   
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta property=’og:image’ content="{{ asset('photos/art/thumb.jpg') }}"/>
@@ -35,14 +35,22 @@
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
       <link rel="icon" type="image/x-icon" href="{{ asset('photos/icons/w-2.png ')}}">
-
+      <link rel='stylesheet' href='{{ asset("css/sanitysystem.css")}}'>
+      
     <!-- cdnjs -->  
     <style>
       pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
+  body{
+    background-image: url('{{ asset("photos/art/fakeblur.png")}}') !important;
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
     </style>
         <script>
    // Minimize HTTP requests
@@ -95,19 +103,13 @@ const intervalId = setInterval(function() {
     clearInterval(intervalId);
   }
 }, 50);
-
-
-
-     
-
-
       setTimeout(function(){
          $("#pnl_msg").hide();
       },4000)
    }
 </script>
 
-<div id="pnl_msg" style="display:none; bottom: 0; right: 0; background-color:white; position: fixed; padding: 20px; border-radius: 6px; z-index: 10000; margin: 20px;" class="border">
+<div id="pnl_msg" style="display:none; bottom: 0; right: 0; background-color:white; position: fixed; padding: 20px; border-radius: 12px; z-index: 10000; margin: 20px;" class="border">
    <p id="msgtext" class="mb-0" style="max-width: 300px; word-wrap:break-word; "></p>
 </div>
 
@@ -123,9 +125,6 @@ const intervalId = setInterval(function() {
  
 </html>
 <script>
-
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
   var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
@@ -159,4 +158,33 @@ var scripts = document.querySelectorAll("script");
 for (var i = 0; i < scripts.length; i++) {
   scripts[i].innerHTML = scripts[i].innerHTML.replace(/\s+/g, "");
 }
+
+$(".homepage").hide();
+$(".hackathonwinners").hide();
+$(".newsandupdates").hide();
+$(".storychapters").hide();
+$(".publicteammembers").hide();
+$(".jobposting").hide();
+$(".contributors").hide();
+var fset = '{{ session("user_featureset") }}';
+if(fset != ""){
+
+  //validate features
+  var featurefragments = fset.split(",");
+  for(var i =0; i < featurefragments.length;i++){
+    $("." + featurefragments[i]).show();
+  }
+}else{
+  $(".homepage").show();
+$(".hackathonwinners").show();
+$(".newsandupdates").show();
+$(".storychapters").show();
+$(".publicteammembers").show();
+$(".jobposting").show();
+$(".contributors").show();
+}
+
+
+
+
 </script>

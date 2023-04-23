@@ -48,6 +48,7 @@ $(".inplogin").on("keyup", function(event) {
             let inpass = $("#inp_password").val();
 
            if(inpname != "" && inpass != ""){
+            showload();
             $.ajax({
                 type: "post",
                 url: "{{ route('stole_loginadmin') }}",
@@ -58,13 +59,19 @@ $(".inplogin").on("keyup", function(event) {
                     if(data == "0"){
                         //failed
                         alert("Invalid login.");
+                        hideload();
+                    }else if(data == "2"){
+                        // setup
+                        window.location.href="{{ route('fly_accountsetup') }}";
                     }else if(data == "1"){
                         //success
+                        
                         window.location.href="{{ route('goto_admindashboard') }}";
                     }
 
                     $("#inp_username").val("");
                     $("#inp_password").val("");
+                  
                 }
             })
            }else{

@@ -1,17 +1,19 @@
-@extends('master.master')
+@extends('master.master_public')
 
 @section('title')
-Employee Self-Service System
+Walk Online - Page not found.
 @endsection
-
+@include('comp.header_public')
 @section('contents')
 
 <center>
-	<div class="mt-5 mb-5">
-		<img src="{{ asset('images/pagenotfound.png') }}" style="width: 100px;" class="mb-3">
+<br>
+	<br>
+	<div style="margin-top:30vh; margin-bottom:30vh;">
 		<h1>Page not found.</h1>
+		<a class="btn btn-primary" href="{{ route('goto_home') }}">Go to Homepage</a>
 	</div>
-	<a class="btn btn-primary" href="{{ route('ess_login') }}">Go to ESS Homepage</a>
+	
 </center>
 
 

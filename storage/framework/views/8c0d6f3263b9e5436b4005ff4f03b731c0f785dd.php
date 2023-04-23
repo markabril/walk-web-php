@@ -56,12 +56,7 @@
 // Lazy Load Images
 
 
-// Minify HTML
-document.documentElement.innerHTML = document.documentElement.innerHTML.replace(/\s+/g, " ").replace(/>\s</g, "><");
 
-// Minify CSS
-var css = document.querySelector("style");
-css.innerHTML = css.innerHTML.replace(/\s+/g, "");
 
 
 </script>
@@ -71,36 +66,4 @@ css.innerHTML = css.innerHTML.replace(/\s+/g, "");
 <script>
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-  if ("IntersectionObserver" in window) {
-    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          let lazyImage = entry.target;
-          lazyImage.src = lazyImage.dataset.src;
-          lazyImage.srcset = lazyImage.dataset.srcset;
-          lazyImage.classList.remove("lazy");
-          lazyImageObserver.unobserve(lazyImage);
-        }
-      });
-    });
-
-    lazyImages.forEach(function(lazyImage) {
-      lazyImageObserver.observe(lazyImage);
-    });
-  } else {
-    // Fallback for unsupported browsers
-    lazyImages.forEach(function(lazyImage) {
-      lazyImage.src = lazyImage.dataset.src;
-      lazyImage.srcset = lazyImage.dataset.srcset;
-    });
-  }
-});
-   // Minify JavaScript
-var scripts = document.querySelectorAll("script");
-for (var i = 0; i < scripts.length; i++) {
-  scripts[i].innerHTML = scripts[i].innerHTML.replace(/\s+/g, "");
-}
 </script>

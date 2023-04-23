@@ -1,4 +1,4 @@
-
+<?php $profilepic = session('user_profile'); ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light " style="width:100%; position:fixed; z-index:1000; top:0; left:0; right:0;">
     <div class="container">
   <a class="navbar-brand littext" href="#">WOM Admin</a>
@@ -16,19 +16,20 @@
           Manage Website
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('goto_managehome') }}">Homepage</a>
-        <a class="dropdown-item" href="{{ route('goto_hackathonwinners') }}">Hackathon Winners</a>
-        <a class="dropdown-item" href="{{ route('goto_mamagestory') }}">Story Chapters</a>
-        <a class="dropdown-item" href="{{ route('goto_managepublicmembers') }}">Public Team Members</a>
-        <a class="dropdown-item" href="{{ route('goto_managejobposting') }}">Job Posting</a>
+        <a class="dropdown-item homepage" href="{{ route('goto_managehome') }}">Homepage</a>
+        <a class="dropdown-item hackathonwinners" href="{{ route('goto_hackathonwinners') }}">Hackathon Winners</a>
+        <a class="dropdown-item newsandupdates" href="{{ route('goto_managenews') }}">News and Updates</a>
+        <a class="dropdown-item storychapters" href="{{ route('goto_mamagestory') }}">Story Chapters</a>
+        <a class="dropdown-item publicteammembers" href="{{ route('goto_managepublicmembers') }}">Public Team Members</a>
+        <a class="dropdown-item jobposting" href="{{ route('goto_managejobposting') }}">Job Posting</a>
         <!-- <a class="dropdown-item" href="{{ route('goto_manageheaderfoot') }}">Header and Footer</a> -->
         </div>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="{{ route('goto_managecontributors') }}">Contributors</a>
+        <a class="nav-link contributors" href="{{ route('goto_managecontributors') }}">Contributors</a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="{{ route('goto_managelogs') }}"> Logs</a>
+      <a class="nav-link" href="{{ route('goto_managelogs') }}"> Transparency</a>
       </li>
          
     </ul>
@@ -39,7 +40,8 @@
     <ul class="navbar-nav ml-auto">
 
     <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> {{ session("user_name") }}</a>
+        <a class="nav-link" href="{{ route('goto_manageaccount') }}">
+          <div style="margin-right:6px; transform: translateY(4px) scale(1.7); border-radius: 100px; background-image: url('{{ $profilepic }}'); display:inline-block; height: 16px; width: 16px; background-size:cover; background-repeat: no-repeat;"></div> {{ session("user_name") }}</a>
       </li>
 
 

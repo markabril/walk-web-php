@@ -21,8 +21,22 @@ Route::get("/contactus",['uses'=>'functions@fly_contactus','as'=>'goto_contactus
 Route::get("/termsandconditions",['uses'=>'functions@goto_terms','as'=>'goto_terms']);
 Route::get("/privacypolicy",['uses'=>'functions@goto_privacypolicy','as'=>'goto_privacypolicy']);
 Route::get("/storymode",['uses'=>'functions@fly_story','as'=>'goto_story']);
-Route::get("/lorechapter1",['uses'=>'functions@fly_lore_c1','as'=>'goto_lore_c1']);
+Route::get("/lore",['uses'=>'functions@fly_lore_c1','as'=>'goto_lore_c1']);
 Route::get("/hackathonhistory",['uses'=>'functions@fly_hackwinners','as'=>'goto_hackwinners']);
+Route::get("/getfeturedhome",['uses'=>'functions@look_homefeatured','as'=>'stole_homefeatured']);
+Route::get("/getallstorypublicchap",['uses'=>'functions@look_getallchapterslist','as'=>'stole_getallchapterslist']);
+Route::get("/getchpaterpublicdeteils",['uses'=>'functions@look_singlechaptercontpublic','as'=>'stole_singlechaptercontpublic']);
+Route::get("/geminiclist",['uses'=>'functions@look_getallchapterslistminimal','as'=>'stole_getallchapterslistminimal']);
+Route::get("/newsandupdates",['uses'=>'functions@fly_news','as'=>'goto_news']);
+Route::get("/getnewspublic",['uses'=>'functions@look_publicnews','as'=>'stole_publicnews']);
+Route::get("/newscontent",['uses'=>'functions@fly_newscontent','as'=>'goto_newscontent']);
+Route::get("/getcontentsingle",['uses'=>'functions@look_singlenewspublic','as'=>'stole_singlenewspublic']);
+Route::get("/classoverview",['uses'=>'functions@fly_classoverview','as'=>'goto_classoverview']);
+Route::get("/getlatestnews",['uses'=>'functions@look_latestnews','as'=>'stole_latestnews']);
+Route::get("/getpublicmembers",['uses'=>'functions@look_publicmembers','as'=>'stole_publicmembers']);
+Route::get("/getpublishedjobposting",['uses'=>'functions@look_publishedjobposting','as'=>'stole_publishedjobposting']);
+Route::get("/fulljobinfosingle",['uses'=>'functions@look_fulljobinfo','as'=>'stole_fulljobinfo']);
+
 
 //admin pages
 
@@ -75,7 +89,52 @@ Route::get("/gethomebottompnl",['uses'=>'functions@look_homebottompanel','as'=>'
 
 Route::get("/gethackwinhistory",['uses'=>'functions@look_gethackathonwinshistory','as'=>'stole_gethackathonwinshistory']);
 Route::get("/getlatestfeatured",['uses'=>'functions@look_latestfeatured','as'=>'stole_latestfeatured']);
-Route::get("/getfeturedhome",['uses'=>'functions@look_homefeatured','as'=>'stole_homefeatured']);
+Route::get("/accountsetup",['uses'=>'functions@look_accountsetup','as'=>'fly_accountsetup']);
+
+Route::post("/accountcreation",['uses'=>'functions@fire_createaccount','as'=>'shoot_createaccount']);
+Route::get("/managenews",['uses'=>'functions@fly_managenews','as'=>'goto_managenews']);
+Route::post("/publishnews",['uses'=>'functions@fire_publishnews','as'=>'shoot_publishnews']);
+Route::get("/getnews",['uses'=>'functions@look_getallnews','as'=>'stole_getallnews']);
+Route::post("/deletenews",['uses'=>'functions@fire_deletenews','as'=>'shoot_deletenews']);
+Route::post("/addnewupdatesetup",['uses'=>'functions@fire_addnewupdatesetup','as'=>'shoot_addnewupdatesetup']);
+Route::get("/getupdatesadmin",['uses'=>'functions@look_updatesfromadmin','as'=>'stole_updatesfromadmin']);
+Route::get("/seeupdateitems",['uses'=>'functions@look_updateitems','as'=>'stole_updateitems']);
+Route::post("/addupdateitems",['uses'=>'functions@fire_newupdateitem','as'=>'shoot_newupdateitem']);
+Route::get("/getpublicupdates",['uses'=>'functions@look_publicupdates','as'=>'stole_publicupdates']);
+Route::get("/updatebasic",['uses'=>'functions@look_updatebasicinfo','as'=>'stole_updatebasicinfo']);
+Route::post("/deleteupdateitem",['uses'=>'functions@fire_deletefeatureitem','as'=>'shoot_deletefeatureitem']);
+Route::post("/delupdaterec",['uses'=>'functions@fire_deleteupdaterec','as'=>'shoot_deleteupdaterec']);
+Route::get("/updateoverview",['uses'=>'functions@fly_updateoverview','as'=>'goto_updateoverview']);
+Route::get("/featuredtailsfull",['uses'=>'functions@look_publicupdatedetailsfull','as'=>'stole_publicupdatedetailsfull']);
+Route::post("/addnewcontributor",['uses'=>'functions@fire_addcontributor','as'=>'shoot_addcontributor']);
+Route::get("/getcontributors",['uses'=>'functions@look_allcontributors','as'=>'stole_allcontributors']);
+Route::get("/manageaccount",['uses'=>'functions@fly_manageaccount','as'=>'goto_manageaccount']);
+
+
+Route::post("/chpass",['uses'=>'functions@fire_changepassword','as'=>'shoot_changepassword']);
+Route::post("/chrole",['uses'=>'functions@fire_changerole','as'=>'shoot_changerole']);
+Route::post("/chusername",['uses'=>'functions@fire_changeusername','as'=>'shoot_changeusername']);
+Route::post("/chprppic",['uses'=>'functions@fire_changeprofilepic','as'=>'shoot_changeprofilepic']);
+
+Route::get("/getmybasicinfo",['uses'=>'functions@look_getmyinfobasic','as'=>'stole_getmyinfobasic']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

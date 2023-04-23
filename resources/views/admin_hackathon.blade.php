@@ -6,23 +6,32 @@ WOM Admin - Hackathon
 @section('contents')
 @include('comp.header_admin')
 <div class="container mt-4">
-       <h5>Hackathon Winners Management </h5>
-       <button class="btn btn-primary" data-toggle="modal" data-target="#mdl_addwinner">Add New Record</button>
 
-       <table class="table mt-3">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>PH</th>
-            <th>International</th>
-            <th>Message</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody id="tbl_hack">
+<div class="card">
+  <div class="card-header">
+  <h5 class="card-title">Hackathon Winners Management </h5>
+  </div>
+  <div class="card-body">
+  <button class="btn btn-primary" data-toggle="modal" data-target="#mdl_addwinner">Add New Record</button>
 
-    </tbody>
-       </table>
+<table class="table mt-3">
+<thead>
+ <tr>
+     <th>Date</th>
+     <th>PH</th>
+     <th>International</th>
+     <th>Message</th>
+     <th>Action</th>
+ </tr>
+</thead>
+<tbody id="tbl_hack">
+
+</tbody>
+</table>
+  </div>
+</div>
+       
+      
 </div>
 <!-- Modal -->
 <div class="modal fade" id="mdl_addwinner" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

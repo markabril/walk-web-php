@@ -37,9 +37,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 		">
 			<center>
 				
-				<h1 class="shadowtext" style="margin-top: 23vh; font-size: 40px;">
-					<img src="{{ asset('photos/transparents/walktext.png') }}" class="walktext" style="width:70%; max-width:900px;" loading="lazy">
-				</h1>
+				
+					<img src="{{ asset('photos/transparents/walklogofull.png') }}" class="walktext" loading="lazy">
+			
 
 			</center>
 	
@@ -50,23 +50,34 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 
 	<div class="container mt-5"  >
 
-
-	<div class="main_promo mb-3 readable">
+		<div class="row">
+		<div class="col-sm-9">
+			<h5><small>FEATURED</small></h5>
+		<div class="main_promo mb-3 readable">
 <div class="main_promo_inner shadowtext p-5" style="text-align: left;">
 	
 	<div class="row">
-
 <div class="col-sm-6">
-<p><h2 class="mb-0">Valentine Event</h2>
+<p><h2 class="mb-0" id="feat_title">Valentine Event</h2>
 <div class="separator-gold-left mb-0"></div>
-<span >See all the new features behind this masterpice! See all the new features behind this masterpice! See all the new features behind this masterpice!</span></p>
-	<button class="btn btn-primary">Explore</button>
+<span id="deat_desc">See all the new features behind this masterpice! See all the new features behind this masterpice! See all the new features behind this masterpice!</span></p>
+	<a class="btn btn-primary" target="_blank" href="#" id="feat_button">Explore</a>
 </div>
 	</div>
 	
 </div>
 
 </div>
+		</div>	
+
+		<div class="col-sm-3">
+		<h5><small><a class="text-light" href="{{ route('goto_news') }}">NEWS & UPDATES</a></small></h5>
+		<div class="row latestnews readable">
+
+</div>
+		</div>
+		</div>
+	
 
 
 	<div class="row">
@@ -74,18 +85,18 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 			
 			<center>
 
-			<h5 class="mb-5 readable text-muted"><span class="littext">WALK ONLINE</span> is a mobile MMORPG made by Filipino developers. A 3D game that offers PvP, Party, Hackathon, Quests & Special Events based on the Philippine setting. So, what are you waiting for? Explore the thrilling adventures now!</h5>
+			<h5 class="m-5 readable text-muted"><span class="littext">WALK ONLINE</span> is a mobile MMORPG made by Filipino developers. A 3D game that offers PvP, Party, Hackathon, Quests & Special Events based on the Philippine setting. So, what are you waiting for? Explore the thrilling adventures now!</h5>
 			</center>
 		</div>
 		<div class="col-md-12" style="margin-bottom:100px;">
 			<center>
-				<div class="separator-blue-center mb-5"></div>
-				<h5>WELCOME TO THE<br><b class="littext" style="letter-spacing: 10px !important; font-size: 30px !important;">UNIVERSITIES!</b></h5>
+				<div class="separator-blue-center mb-5 "></div>
+				<h5 class="">WELCOME TO THE<br><b class="littext" style="letter-spacing: 10px !important; font-size: 30px !important;">UNIVERSITIES</b></h5>
 				<div class="separator-blue-center mt-5 mb-5"></div>
 			</center>
 			<div class="card-deck">
 				
-				<div class="card card-primary mt-3">
+				<div class="card card-simple">
 					<div class="card-body">
 							<center>
 								<img loading="lazy" src="{{ asset('photos/icons/ne.png') }}" style="height: 150px;">
@@ -96,7 +107,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 					</div>
 				</div>
 
-				<div class="card card-danger" style="transform: scale(1.1);">
+				<div class="card card-simple" >
 					<div class="card-body">
 							<center>
 								<img loading="lazy" src="{{ asset('photos/icons/fe.png') }}" style="height: 150px;">
@@ -107,7 +118,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
 					</div>
 				</div>
 
-				<div class="card card-warning mt-3">
+				<div class="card card-simple">
 					<div class="card-body">
 							<center>
 								<img loading="lazy" src="{{ asset('photos/icons/peli.png') }}" style="height: 150px;">
@@ -258,42 +269,56 @@ margin:0px !important; overflow:hidden;">
 		<div class="col-md-12">
 		<center>
 		<div class="separator-gold-center mb-2 mt-5"></div>
-			<h4 class="shadowtext">CHOOSE YOUR CLASS</h4>
+			<h3 class="shadowtext">CHOOSE YOUR CLASS</h3>
 			<div class="separator-gold-center mt-2 mb-5"></div>
 		</center>
 		</div>
 		<div class="col-md-12" >
 			<div class="row" >
 				<div class="col-md-3" style="perspective: 1000px;">
-				<div data-toggle="modal" data-target="#mdl_swordsman" style='transform:rotatey(30deg) rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_swordsman.png') }})' class="char_holder">
+				<div style='transform:rotatey(30deg) rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_swordsman.png') }})' class="char_holder">
+			
+			<a  href="{{ route('goto_classoverview') }}?selected=swordsman">
+
 			<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="{{ asset('photos/icons/swordsman.png') }}" alt="swordsman" border="0">
 				<h5 class="charcard_title littext">SWORDSMAN</h5>
 			</div>
+
+			</a>
+			
 			</div>
 				</div>
 				<div class="col-md-3" style="perspective: 1000px;">
-				<div  data-toggle="modal" data-target="#mdl_shaman" style='transform:rotatey(30deg)  rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_shaman.png') }})' class="char_holder">
+				<div   style='transform:rotatey(30deg)  rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_shaman.png') }})' class="char_holder">
+				
+				<a  href="{{ route('goto_classoverview') }}?selected=shaman">
 				<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="{{ asset('photos/icons/shaman.png') }}" alt="swordsman" border="0">
 				<h5 class="charcard_title littext">SHAMAN</h5>
 			</div>
+
+</a>
 			</div>
 				</div>
 				<div class="col-md-3" style="perspective: 1000px;">
-				<div  data-toggle="modal" data-target="#mdl_brawler" style='transform:rotatey(-30deg)  rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_brawler.png') }})' class="char_holder">
+				<div style='transform:rotatey(-30deg)  rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_brawler.png') }})' class="char_holder">
+				<a  href="{{ route('goto_classoverview') }}?selected=brawler">
 				<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="{{ asset('photos/icons/brawler.png') }}" alt="swordsman" border="0">
 				<h5 class="charcard_title littext">BRAWLER</h5>
 			</div>
+</a>
 			</div>
 				</div>
 				<div class="col-md-3" style="perspective: 1000px;">
-				<div  data-toggle="modal" data-target="#mdl_archer" style='transform:rotatey(-30deg)  rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_archer.png') }})' class="char_holder">
+				<div   style='transform:rotatey(-30deg)  rotatex(10deg); background-image: url({{ asset('photos/transparents/ff_archer.png') }})' class="char_holder">
+				<a  href="{{ route('goto_classoverview') }}?selected=archer">
 				<div class="bg_separator">
 			<img class="charcard_icon" style="height:30px; transform: scale(5);" src="{{ asset('photos/icons/archer.png') }}" alt="swordsman" border="0">
 				<h5 class="charcard_title littext">ARCHER</h5>
 			</div>
+</a>
 			</div>
 				</div>
 			</div>
@@ -664,8 +689,9 @@ The United Jewel Sellers Bank (U.J.S. Bank) that funds the Fiery Emerald Univers
             url: "{{ route('stole_homehackathonwinners') }}",
             data: {_token: "{{ csrf_token() }}"},
         });
-    }).then(function(data) {
-		console.log("hackathon winners -->" + data);
+    })
+	.then(function(data) {
+        console.log("hackathon winners -->" + data);
 
 
 data = JSON.parse(data);
@@ -688,9 +714,18 @@ if(data.length  != 0){
 }else{
 	$("#lbl_hackdate, #ph_ne, #ph_fe, #ph_peli, #int_ne, #int_fe, #int_peli, #hackmessage ").html("(n/a)");
 }
-
-
-
+	
+        return $.ajax({
+            type: "get",
+            url: "{{ route('stole_latestnews') }}",
+            data: {_token: "{{ csrf_token() }}"},
+        });
+    })
+	
+	
+	.then(function(data) {
+	
+		$(".latestnews").html(data);
 
         return $.ajax({
             type: "get",
@@ -702,6 +737,19 @@ if(data.length  != 0){
 		data = JSON.parse(data);
 		if(data.length != 0){
 			$(".main_promo").css("background-image","url(" + data[0]["img"] + ")");
+
+
+
+			$("#feat_title").html(data[0]["title"]);
+$("#deat_desc").html(data[0]["description"]);
+$("#feat_button").html(data[0]["btn_name"]);
+$("#feat_button").prop("href",data[0]["link"]);
+		}else{
+
+			$("#feat_title").html("n/a");
+$("#deat_desc").html("n/a");
+$("#feat_button").html("n/a");
+$("#feat_button").prop("href","#");
 		}
      
 

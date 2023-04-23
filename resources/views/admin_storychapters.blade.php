@@ -6,23 +6,31 @@ WOM Admin - Story Chapters
 @section('contents')
 @include('comp.header_admin')
 	<div class="container mt-4">
-    <h5>Story Chapters Management</h5>
-       <button class="btn btn-primary" data-toggle="modal" id="modalBtn" data-target="#mdl_addnewstory">Add New Record</button>
+    <div class="card">
+    <div class="card-header">
+    <h5 class="card-title">Story Chapters Management</h5>
+    </div>
+    <div class="card-body">
+    <button class="btn btn-primary" data-toggle="modal" id="modalBtn" data-target="#mdl_addnewstory">Add New Record</button>
 
-       <table class="table mt-3">
-        <thead>
-            <tr>
-            <th>Chapter No#</th>
-                <th>Title</th>
-                <th>Preview</th>
-                <th>Date of Publish</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="tbl_chapters">
+<table class="table mt-3">
+ <thead>
+     <tr>
+     <th>Chapter No#</th>
+         <th>Title</th>
+         <th>Preview</th>
+         <th>Date of Publish</th>
+         <th>Action</th>
+     </tr>
+ </thead>
+ <tbody id="tbl_chapters">
 
-        </tbody>
-       </table>
+ </tbody>
+</table>
+    </div>
+    </div>
+    
+     
     </div>
 
 

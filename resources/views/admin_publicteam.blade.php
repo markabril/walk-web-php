@@ -6,22 +6,30 @@ WOM Admin - Team Members
 @section('contents')
 @include('comp.header_admin')
 	<div class="container mt-4">
-    <h5>Public Team Members</h5>
-       <button class="btn btn-primary" data-toggle="modal" data-target="#mdl_addteam">Add New Member</button>
+    <div class="card">
+      <div class="card-header">
+      <h5 class="card-title">Public Team Members</h5>
+      </div>
+    <div class="card-body">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#mdl_addteam">Add New Member</button>
 
-       <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>Face Picture</th>
-                <th>Name</th>
-                <th>Row Order</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="tbl_members">
+<table class="table mt-3">
+ <thead>
+     <tr>
+         <th>Face Picture</th>
+         <th>Name</th>
+         <th>Row Order</th>
+         <th>Action</th>
+     </tr>
+ </thead>
+ <tbody id="tbl_members">
 
-        </tbody>
-       </table>
+ </tbody>
+</table>
+    </div>
+    </div>
+   
+       
     </div>
 
 

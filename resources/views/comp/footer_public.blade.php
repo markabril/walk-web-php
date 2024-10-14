@@ -21,7 +21,8 @@
 				<p><strong>SOCIAL MEDIA</strong></p>
 				<div class="separator-blue-left-thin mb-3"></div>
 				<ul style="list-style-type: none; padding-left: 0px;">
-					<li><a target="_blank" href="https://www.facebook.com/officialwalkonlinemobile"><i style="width:20px;" class="fab fa-facebook"></i> Page</a></li>
+					<li><a target="_blank" href="https://www.facebook.com/walkonlinemobileofficial"><i style="width:20px;" class="fab fa-facebook"></i> Page</a></li>
+					<li><a target="_blank" href="https://www.tiktok.com/@walkonlinemobileofficial"><i style="width:20px;" class="fab fa-tiktok"></i> Tiktok</a></li>
 					<li><a target="_blank" href="https://www.instagram.com/walkonlinemobile/"><i style="width:20px;" class="fab fa-instagram"></i> Instagram</a></li>
 					<li><a target="_blank" href="https://www.youtube.com/channel/UC75y6x0BKC-kyyyRPcHot7A"><i style="width:20px;" class="fab fa-youtube"></i> Youtube</a></li>
 					<li><a target="_blank" href="https://discord.com/invite/eM55mMFfGQ"><i style="width:20px;" class="fab fa-discord"></i> Discord</a></li>

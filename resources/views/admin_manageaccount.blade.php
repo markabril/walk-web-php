@@ -15,7 +15,7 @@ WOM Admin - News
 
         <div class="form-group">
             <label>Profile Picture</label>
-            <div style="height: 123px; width: 123px; background-size: cover; background-image: url({{ session('user_profile') }} ); border-radius: 300px;"></div>
+            <div class="border" style="height: 123px; width: 123px; background-size: cover; background-position:center; background-image: url({{ session('user_profile') }} ); border-radius: 300px;"></div>
             <button class="btn btn-primary btn-sm mt-3" data-toggle="modal" data-target="#mdl_changeprofilepicture"><i class="fa-solid fa-pen-to-square"></i> Change Profile Picture</button>
         </div>
         <div class="form-group">

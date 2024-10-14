@@ -12,7 +12,7 @@ WALK Online - Mobile MMORPG
 	<div class="container mt-5 pt-5">
 
 	<div class="mb-5">
-			<h4 class="mb-4">Walk Online News</h4>
+			<h1 class="mt-5 mb-5 titlefont littext">WALK ONLINE NEWS & UPDATES</h1>
 			<div class="separator-gold-left mb-4"></div>
 
 			<div class="readable">

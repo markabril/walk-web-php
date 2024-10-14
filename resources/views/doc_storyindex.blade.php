@@ -20,10 +20,11 @@ WALK Online - Mobile MMORPG
 </style>
 @include('comp.header_public')
 <div class="container mt-5 pt-5">
-    <center>
-        <h5 class="littext">The Lore of Walk<br> <small>Uncover the secrets of the past, save the future.</small></h5>
-        <div class="separator-gold-center mb-3 mt-3"></div>
-    </center>
+
+        <h1 class="mt-5  littext titlefont">THE LORE OF WALK ONLINE</h1>
+        <p class="mb-5">Uncover the secrets of the past, save the future.</p>
+        <div class="separator-gold-left mb-3 mt-3"></div>
+
 
     <div class="row mb-5" id="inp_allchapters">
         <div class="col-md-4 mb-3">
@@ -44,7 +45,7 @@ background-size: cover;
 
 
     </div>
-
+</div>
     <script>
 
 getAllChapters();

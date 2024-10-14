@@ -5,8 +5,42 @@
 	font-family: 'singalore';
 	src: url('fonts/singalore.otf');
 	}
-
-
+	@font-face {
+		font-family: 'worksans';
+		src: url('fonts/WorkSans-Bold.ttf');
+		}
+	
+.titlefont{
+	font-family: "worksans";
+}
+	
+.banner_grande{
+	display: block;
+	position:fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	
+	z-index:-1;
+	padding-top: 50px;
+	height: 100vh;
+	width:100%;
+	background-size: cover;
+	background-position:center;
+	animation-name: entrance_banner;
+	animation-duration: 4s;
+}
+.banner_inside{
+	display: block;
+position: relative;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+height: 100%;
+width: 100%;
+background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #16232F 100%);
+}
 .download_img{
 	height: 50px;
 }
@@ -23,12 +57,33 @@
 	border-top: 1px solid rgba(255,255,255,0.3);
 	border-bottom: 1px solid rgba(255,255,255,0.3);
 	background-repeat: no-repeat;
+	filter:drop-shadow(0 0 20px black);
+	display: block;
+	margin-top: -3px !important;
+	background-size: cover;
+	background-color: black;
+	background-position: center;
+}
+
+.universitybg{
+	border-top: 1px solid rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	background-repeat: no-repeat;
 	box-shadow: 0px 0px 20px black;
 	display: block;
 	margin-top: -3px !important;
 	background-size: cover;
 	background-color: black;
 	background-position: center;
+}
+
+
+
+.hack_uc {
+	background-color:#182330;
+   overflow:visible;
+   display:flex;
+   flex-direction: column;
 }
 .main_promo{
 	position: relative;
@@ -48,7 +103,8 @@ border: 1px solid gray;
 bottom: 0;
 width: 100%;
 background: rgb(22,35,47);
-background: linear-gradient(90deg, rgba(22,35,47,1) 0%, rgba(255,255,255,0) 100%);
+background: linear-gradient(0deg, rgba(22,35,47,1) 0%, rgba(255,255,255,0) 100%);
+ overflow: hidden;
 }
 
 .readable{
@@ -89,19 +145,26 @@ word-wrap: break-word;
 	animation-duration: 360s;
 	animation-iteration-count: infinite;
 }
-.walktext{
-	animation-name: entrance_text;
-	animation-duration: 2s;
+
+
+.home_logo_holder {
+	width:580px;
+	height:580px;
+	margin:auto;
 	position:absolute;
 	top:0;
 	left:0;
 	right:0;
+	margin-top:-60px;
+	display:flex;
+	align-items:center;
+}
+.walktext{
+	animation-name: entrance_text;
+	animation-duration: 2s;
 	margin:auto;
-
 	width:580px;
 	max-width:900px;
-
-
 }
 
 @keyframes entrance_text{
@@ -114,7 +177,7 @@ word-wrap: break-word;
 		opacity: 0;
 	}
 	100%{
-		transform: .scale(1);
+		transform: scale(1);
 		opacity: 1;
 	}
 }
@@ -135,14 +198,14 @@ word-wrap: break-word;
 		opacity: 0;
 	}
 	100%{
-		transform: .scale(1);
+		transform: scale(1);
 		opacity: 1;
 	}
 }
 .navbar{
-	background: rgb(67,121,156);
-background: #162330 !important;
-border-bottom: 1px solid rgba(255, 255, 255, 0.01) !important;
+background-color: rgba(0, 0, 0, 0.5) !important;
+backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(255,255,255,0.05) !important;
 box-shadow: 1px 0px 50px rgba(0, 0, 0,0.4);
 width: 100%;
 left: 0;
@@ -271,7 +334,10 @@ box-shadow: inset 0 0 10px rgba(182,244,248,0.5), 1px 0px 30px rgba(182,244,248,
 color: white;
 }
 body{
-	background-color: #16232F;
+	background: rgb(92,135,145);
+	background: linear-gradient(160deg, rgba(92,135,145,1) 0%, rgba(44,82,91,1) 19%, rgba(23,35,47,1) 45%, rgba(0,0,0,1) 100%);
+background-position: center;
+background-attachment: fixed;
 	font-family: cinzel;
 	color: white;
 	overflow-x: hidden;
@@ -347,7 +413,7 @@ height: 1px;
 	}
 	.walktext{
 	
-		margin-top: 40px;
+		margin-top: 0px;
 		width:80%;
 
 	
@@ -414,4 +480,264 @@ transform-style: preserve-3d;
 }
 .chapter-link {
 	text-decoration: none;
+}
+
+
+
+.universitybg{
+	border-top: 1px solid rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	background-repeat: no-repeat;
+	padding:0;
+	box-shadow: 0px 0px 20px black;
+	display: block;
+	margin-top: -3px !important;
+	background-size: cover;
+	background-color: black;
+	background-position: center;
+}
+
+
+.university-clash-wrapper{
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	padding:0;
+	margin-inline:auto;
+	height:100%;
+	width:100%;
+	min-width:250px;
+	max-width: 2000px;
+}
+
+
+
+.uc-image {
+	flex:1;
+	overflow:hidden;
+	display:flex;
+	justify-content: flex-end;
+	isolation: isolate;
+}
+
+.uc-image > img {
+	width: 100%;
+	height:auto;
+	object-fit: cover;
+	opacity:.7;
+	z-index:-1;
+}
+
+.uc-image-overlay{
+	position:absolute;
+	inset:0;
+	z-index:0;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	font-size:clamp(5rem, 2vw, 10rem);
+	text-align: center;
+}
+
+.uc-details {
+	flex:1;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position:relative;
+	isolation: isolate;
+	background: black;
+
+}
+
+#university-name-handler{
+	display:flex;
+	flex-direction: column;
+	flex:1;
+	padding:2rem;
+	padding-inline-end: 0;
+	height:100%;
+	width:100%;
+}
+
+#university-name-handler > .title{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#university-name-handler > .uclogo-holder{
+	flex:1;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	isolation:isolate;
+
+}
+#university-name-handler > .uclogo-holder{
+	flex:1;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+
+
+#university-name-handler > .uclogo-holder > #icon-ucwin{
+	object-fit: cover;
+	height:100%;
+	max-height:250px;
+	width:auto;
+	object-position: center center;
+	z-index:0;
+}
+
+.backdrop-vid{
+	position: absolute;
+	max-width: 1000px;
+	object-fit: cover;
+	mix-blend-mode: screen;
+	z-index:-3;
+}
+
+.ucwinner_stage{
+	position:absolute;
+	bottom:10px;
+	margin-inline: auto;
+	width: 100%;
+	max-width: 1000px;
+	min-width:500px;
+		z-index:-1;
+
+}
+
+.clip-path-wrapper {
+	--theme-color:'';
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+	filter: drop-shadow(-2px 0px 5px var(--theme-color) );
+	z-index:-3
+  }
+
+  .clip-path-1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-image: linear-gradient(to top,
+         var(--theme-color) -80%,
+        rgb(0, 0, 0) 60%);
+    clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 10% 100%, 3% 75%);
+    opacity: 1;
+    z-index: -2;
+
+	
+  }
+
+  .clip-path-1 > video {
+    background-color: aquamarine;
+    mix-blend-mode: screen;
+  }
+
+  .clip-path-2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    clip-path: polygon(14% 0%, 15% 0%, 4% 90%, 7% 100%, 6% 100%, 3% 90%);
+    background-color: rgba(255, 255, 0, 0.404);
+    filter: drop-shadow(-2px 0px 10px rgb(255, 0, 0)) !important;
+    overflow: visible !important;
+    z-index: 0;
+  }
+
+
+.uc_change-view {
+	position: absolute;	
+	right:0;
+	height:100%;
+	display:flex;
+	flex-direction: column;
+	gap:1rem;
+	padding:2rem;
+}
+
+.uc_change-view > span {
+	font-size:clamp(1rem, 1vw, 2rem);
+	font-family: cinzel	;
+	text-transform:capitalize;
+	cursor: pointer;
+	padding-inline:1.5rem;
+	padding-block:1rem;
+	background-image:linear-gradient(to right, rgb(0, 0, 0) 0%, transparent 100%);
+	z-index:9999;
+}
+
+.uc_change-view > span.active {
+	text-decoration:underline;
+}
+
+
+
+.left-right-vignette {
+    position: relative;
+    isolation: isolate;
+  
+  }
+  
+  .left-right-vignette::before,
+  .left-right-vignette::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    /* Adjust width as needed */
+    height: 100%;
+    pointer-events: none;
+    z-index: 1
+  }
+  
+  
+  
+  
+  .left-right-vignette::after {
+    right: 0;
+    background: linear-gradient(to left, #000000 15%, transparent);
+  }
+
+
+  
+.rotate {
+    animation: floating 2s ease-in-out forwards infinite, rotateY 6s ease-in-out both infinite;
+}
+
+@keyframes rotateY {
+    from {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform:rotateY(180deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes floating {
+    from {
+        transform:translateY(0px)
+    }
+    50%{
+        transform:translateY(-10px)
+
+    }
+
+    to{
+        transform:translateY(0px)
+
+    }
 }

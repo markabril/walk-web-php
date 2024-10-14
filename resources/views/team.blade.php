@@ -46,7 +46,7 @@ width: 100%;
 		">
 			
 
-			<div class="container mt-5 shadowtext " style="opacity: 0.9; text-align:center;">
+			<div class="container shadowtext " style="opacity: 0.9; text-align:center;">
 	
 			</div>
 		</div>
@@ -54,8 +54,8 @@ width: 100%;
 
 <div class="container_cover" style="margin-top: 100px !important;">
 
-<div class="container mt-5 pt-5">
-	<center>	<h1>Our Team</h1></center>
+<div class="container mt-5 pt-5 pb-5">
+	<center>	<h1 class="littext titlefont">MEET THE TEAM</h1></center>
 
 		<div class="row mt-5" id="teammemberspublic">
 

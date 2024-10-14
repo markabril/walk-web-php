@@ -11,7 +11,7 @@ WALK Online - Mobile MMORPG
 @include('comp.header_public')
 	<div class="container mt-5 pt-5">
 
-	<div class="mb-5 ml-3 mr-3">
+	<div class="mb-5" style="max-width: 800px; margin:auto; ">
 
 			<center>
             <h2 id="lbl_title"class="mb-1"></h2>
@@ -20,7 +20,7 @@ WALK Online - Mobile MMORPG
             </center>
             <div class="separator-blue-center mb-5 mt-5 "></div>
             <img id="lbl_img" class="mb-5" loading="lazy" style='border-radius: 12px; overflow:hidden; box-shadow: 0px 0px 50px rgba(0,0,0,0.5) !important; width:100%; border: 1px solid rgba(255,255,255,0.1);'>
-            <pre class="readable text-light" id="lbl_desc">
+            <pre class="readable text-light" style="font-size: 19px;" id="lbl_desc">
 
 </pre>
 		</div>
@@ -47,11 +47,6 @@ WALK Online - Mobile MMORPG
                         $("#lbl_date").html(data[0]["dateposted"]);
                         $("#lbl_desc").html(data[0]["description"]);
                     }
-
-
-                        
-
-
 				}
 			})
 		}

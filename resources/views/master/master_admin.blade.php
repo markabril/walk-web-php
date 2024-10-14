@@ -30,7 +30,8 @@
       <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
       <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
-      <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
       
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
@@ -79,12 +80,37 @@ css.innerHTML = css.innerHTML.replace(/\s+/g, "");
 
    <script type="text/javascript">
    $(".modal-dialog").addClass("modal-dialog-centered");
+    var inUse = false;
+   function showload(indicated = false){
 
-   function showload(){
+      if (indicated == true){
+        inUse = true;
+        $("#pnl_loadingindicator").show();
+      }else{
+        if (inUse == false){
+          $("#pnl_loadingindicator").hide();
+        }
+      
+      }
+
       $("#pnllod").show();
+
    }
-   function hideload(){
-      $("#pnllod").hide();
+   function hideload(indicated = false){
+      if(indicated == true){
+        $("#pnllod").show();
+        $("#pnl_loadingindicator").show();
+        setTimeout(function(){
+     
+          inUse = false;
+          $("#pnllod").hide();
+        },500);
+      }else{
+        if(inUse == false){
+          $("#pnllod").hide();
+        }
+       
+      }
    }
 
    function say(message){
@@ -116,8 +142,12 @@ const intervalId = setInterval(function() {
          @yield('contents')
 
          <div id="pnllod" style=" background-color: rgba(255,255,255,0.1);
-         position:fixed; z-index : 1000; display: none; top: 0; left: 0; right: 0; bottom: 0; height: 100%; width: 100%;">
-
+         position:fixed; z-index : 100000; display: none; top: 0; left: 0; right: 0; bottom: 0; height: 100%; width: 100%;">
+          <div class="card" id="pnl_loadingindicator" style="margin:auto; margin-top: 30vh; width: 300px;">
+            <div class="card-body">
+             <center> <span><i class="fa-duotone fa-spinner-third fa-spin"></i> loading...</span></center>
+            </div>
+          </div>
          </div>
 
    </body>

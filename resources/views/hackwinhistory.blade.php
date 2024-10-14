@@ -5,7 +5,7 @@ WALK Online - Mobile MMORPG
 @section('contents')
 @include('comp.header_public')
 	<div class="container mt-5 pt-5">
-     <h4>Hackathon Champions Legacy</h4>
+     <h1 class="littext titlefont mt-5 mb-5">HACKATHON CHAMPIONS LEGACY</h1>
      <div class="separator-gold-left mb-4"></div>
 
 

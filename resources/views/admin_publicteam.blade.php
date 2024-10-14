@@ -91,9 +91,93 @@ WOM Admin - Team Members
   </div>
 </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="mdl_editmemberpic" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Member</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="inpedit_fullname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Position Name</label>
+            <input type="text" id="inpedit_postionname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Order</label>
+            <input type="number" id="inpedit_ordernumber" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onclick="saveMemberInfo()" class="btn btn-primary">Save Member</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   var currentId = "";
   loadTeam();
+function saveMemberInfo(){
+  showload(true);
+
+  var valfullname = $("#inpedit_fullname").val();
+  var valpostionname = $("#inpedit_postionname").val();
+  var valordernumber = $("#inpedit_ordernumber").val();
+
+  if(valfullname && valpostionname && valordernumber){
+    $.ajax({
+    type: "post",
+    url: "{{ route('shoot_saveteamchanges') }}",
+    data: {_token: "{{ csrf_token() }}",
+            valfullname: valfullname,
+            valpostionname: valpostionname,
+            valordernumber: valordernumber,
+            itemid: currentId},
+    success: function (data){
+    say("Changes saved!");
+    loadTeam();
+    hideload(true);
+    $("#mdl_editmemberpic").modal("hide");
+    }
+    })
+  }else{
+    hideload(true);
+    say("Please complete all fields to save changes!");
+  }
+
+
+
+}
+  function openEditMember(controlObj){
+    showload();
+    currentId = $(controlObj).data("itemid");
+
+      $.ajax({
+        type: "get",
+        url: "{{ route('stole_singleteaminfo') }}",
+        data: {_token: "{{ csrf_token() }}",itemid: currentId},
+        success: function(data){
+          data = JSON.parse(data);
+hideload();
+
+          $("#inpedit_fullname").val(data[0]["fullname"]);
+          $("#inpedit_postionname").val(data[0]["position"]);
+          $("#inpedit_ordernumber").val(data[0]["order_no"]);
+
+
+        }
+      })
+  }
+
   function loadTeam(){
       $.ajax({
         type: "get",

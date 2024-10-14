@@ -89,8 +89,51 @@ WOM Admin - Contributors
   </div>
 </div>
 
+<div class="modal fade" id="mdl_deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete Contributor Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please confirm your intention to delete the contributor account. Rest assured that all contributions made under this account will remain intact. Are you sure you want to proceed with the deletion?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" onclick="deleteContriAcc()">Delete Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <script>
+  var currentid = "";
+
+
   loadContributors();
+
+  function deleteContriAcc(){
+    showload(true);
+    $.ajax({
+      type: "post",
+      url: "{{ route('shoot_removecontriacc') }}",
+      data: {_token: "{{ csrf_token() }}",currentid: currentid},
+      success: function(data){
+        loadContributors();
+        hideload(true);
+        say("Contributor successfully removed.");
+        $("#mdl_deleteaccount").modal("hide");
+      }
+    })
+  }
+  function openDeleteContri(controlObj){
+    currentid = $(controlObj).data('itemid');
+  }
   function clearSpaces(control_obj){
     $(control_obj).val( $(control_obj).val().replace(" ","") );
   }
@@ -107,7 +150,7 @@ WOM Admin - Contributors
   }
   function addNewContributor(){
 
-
+    showload(true);
     var inp_profilepic = $("#inp_profilepic")[0].files[0];
     var inp_name = $("#inp_name").val();
     var inp_description = $("#inp_description").val();
@@ -117,7 +160,7 @@ WOM Admin - Contributors
 var inp_password = $("#inp_password").val();
 var inp_repassword = $("#inp_repassword").val();
 
-showload();
+
     if(inp_profilepic != null && inp_profilepic != "" && inp_name && inp_description && inp_featureset){
 
       if(inp_password == inp_repassword){
@@ -140,7 +183,8 @@ showload();
       processData: false,
       success: function (data){
           say(data);
-          hideload();
+          loadContributors();
+          hideload(true);
           $("#mdl_teammember").modal("hide");
       }
     })
@@ -148,11 +192,11 @@ showload();
 
       }else{
         say("Password do not match please double check.");
-        hideload();
+        hideload(true);
       }
     }else{
       say("Please fill all fields.");
-      hideload();
+      hideload(true);
     }
 
   }

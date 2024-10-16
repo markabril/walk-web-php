@@ -155,6 +155,14 @@ Route::get("/getucwinners", ['uses' => 'functions@look_getucwins', 'as' => 'stol
 
 
 
+//Tagis
+Route::get("/managetagiswinners", ['uses' => 'functions@fly_tagiswinners', 'as' => 'goto_tagiswinners']);
+Route::post("/savetagisch", ['uses' => 'functions@fire_savetagischanges', 'as' => 'shoot_savetagischanges']);
+Route::get("/getdatatagissingle", ['uses' => 'functions@look_gettagissingle', 'as' => 'stole_gettagissingle']);
+Route::get("/deltagiswin", ['uses' => 'functions@fire_deletetagiswin', 'as' => 'shoot_deletetagiswin']);
+Route::post("/addnewtagiswinner", ['uses' => 'functions@fire_addtagiswin', 'as' => 'shoot_addtagiswin']);
+Route::get("/gettagiswinners", ['uses' => 'functions@look_gettagiswins', 'as' => 'stole_gettagiswins']);
+Route::get("/gethometagiswins", ['uses' => 'functions@look_hometagiswins', 'as' => 'stole_hometagiswins']);
 
 
 

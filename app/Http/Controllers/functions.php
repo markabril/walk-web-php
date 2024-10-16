@@ -97,6 +97,10 @@ class functions extends Controller
 	{
 		return view('admin_hackathon');
 	}
+	public function fly_tagiswinners()
+	{
+		return view('admin_tagis');
+	}
 	public function fly_ucwinners()
 	{
 		return view('admin_uc');
@@ -299,6 +303,29 @@ class functions extends Controller
 
 		return json_encode($out);
 	}
+
+	public function fire_savetagischanges(Request $req)
+	{
+		$out = $this->send([
+			"tag" => "savetagischanges",
+			"val_tagisseason" => $this->sdmenc($req["val_tagisseason"]),
+			"val_tagisdate" => $this->sdmenc($req["val_tagisdate"]),
+			"val_tagismessage" => $this->sdmenc($req["val_tagismessage"]),
+			"val_ph_overall" => $this->sdmenc($req["val_ph_overall"]),
+			"val_ph_archer" => $this->sdmenc($req["val_ph_archer"]),
+			"val_ph_brawler" => $this->sdmenc($req["val_ph_brawler"]),
+			"val_ph_shaman" => $this->sdmenc($req["val_ph_shaman"]),
+			"val_ph_swordsman" => $this->sdmenc($req["val_int_swordsman"]),
+			"val_int_overall" => $this->sdmenc($req["val_int_overall"]),
+			"val_int_archer" => $this->sdmenc($req["val_int_archer"]),
+			"val_int_brawler" => $this->sdmenc($req["val_int_brawler"]),
+			"val_int_shaman" => $this->sdmenc($req["val_int_shaman"]),
+			"val_int_swordsman" => $this->sdmenc($req["val_int_swordsman"]),
+			"itemid" => $this->sdmenc($req["itemid"])
+		], true);
+
+		return json_encode($out);
+	}
 	public function look_gethackathonsingle(Request $req)
 	{
 		$out = $this->send_get([
@@ -342,6 +369,39 @@ class functions extends Controller
 			$out[0]["ucmsg"] = $this->fix_character_encoding($out[0]["ucmsg"]);
 			$out[0]["ph_ucwin"] = $this->fix_character_encoding($out[0]["ph_ucwin"]);
 			$out[0]["int_ucwin"] = $this->fix_character_encoding($out[0]["int_ucwin"]);
+
+		}
+		return json_encode($out);
+	}
+	public function look_gettagissingle(Request $req)
+	{
+		$out = $this->send_get([
+			"tag" => "gettagissingle",
+			"currentid" => $this->sdmenc($req["currentid"])
+		]);
+
+		$fields = [
+			"tagismsg",
+			"ph_overall",
+			"ph_archer",
+			"ph_brawler",
+			"ph_shaman",
+			"ph_swordsman",
+			"int_overall",
+			"int_archer",
+			"int_brawler",
+			"int_shaman",
+			"int_swordsman"
+		];
+
+
+		if (count($out) != 0) {
+
+			foreach ($fields as $field) {
+				if (isset($out[0][$field])) {
+					$out[0][$field] = $this->fix_character_encoding($out[0][$field]);
+				}
+			}
 
 		}
 		return json_encode($out);
@@ -1324,9 +1384,20 @@ background-size: cover;
 	public function look_homeucwins()
 	{
 		$out = $this->send_get(["tag" => "homeucwins"]);
+		if (count($out) != 0) {
+			$out[0]["ucdate"] = date("F d, Y", strtotime($out[0]["ucdate"]));
+		}
 		return json_encode($out);
 	}
 
+	public function look_hometagiswins()
+	{
+		$out = $this->send_get(["tag" => "hometagiswins"]);
+		if (count($out) != 0) {
+			$out[0]["tagisdate"] = date("F d, Y", strtotime($out[0]["tagisdate"]));
+		}
+		return json_encode($out);
+	}
 
 	function look_getjobs()
 	{
@@ -1543,6 +1614,10 @@ background-size: cover;
 	{
 		return $this->send_get(["tag" => "deleteucwin", "currentId" => $this->sdmenc($req["currentId"])], true);
 	}
+	function fire_deletetagiswin(Request $req)
+	{
+		return $this->send_get(["tag" => "deletetagiswin", "currentId" => $this->sdmenc($req["currentId"])], true);
+	}
 	function fire_addhackwin(Request $req)
 	{
 		return $this->send([
@@ -1566,6 +1641,25 @@ background-size: cover;
 			"vl_ucmessage" => $this->sdmenc($req["vl_ucmessage"]),
 			"vl_ph_ucwin" => $this->sdmenc($req["vl_ph_ucwin"]),
 			"vl_int_ucwin" => $this->sdmenc($req["vl_int_ucwin"]),
+		], true);
+	}
+
+	function fire_addtagiswin(Request $req)
+	{
+		return $this->send([
+			"tag" => "addnewtagiswin",
+			"vl_tagisdate" => $this->sdmenc($req["vl_tagisdate"]),
+			"vl_tagismessage" => $this->sdmenc($req["vl_tagismessage"]),
+			"vl_ph_tagiswin_overall" => $this->sdmenc($req["vl_ph_tagiswin_overall"]),
+			"vl_ph_tagiswin_archer" => $this->sdmenc($req["vl_ph_tagiswin_archer"]),
+			"vl_ph_tagiswin_brawler" => $this->sdmenc($req["vl_ph_tagiswin_brawler"]),
+			"vl_ph_tagiswin_shaman" => $this->sdmenc($req["vl_ph_tagiswin_shaman"]),
+			"vl_ph_tagiswin_swordsman" => $this->sdmenc($req["vl_ph_tagiswin_swordsman"]),
+			"vl_int_tagiswin_overall" => $this->sdmenc($req["vl_int_tagiswin_overall"]),
+			"vl_int_tagiswin_archer" => $this->sdmenc($req["vl_int_tagiswin_archer"]),
+			"vl_int_tagiswin_brawler" => $this->sdmenc($req["vl_int_tagiswin_brawler"]),
+			"vl_int_tagiswin_shaman" => $this->sdmenc($req["vl_int_tagiswin_shaman"]),
+			"vl_int_tagiswin_swordsman" => $this->sdmenc($req["vl_int_tagiswin_swordsman"]),
 		], true);
 	}
 	function look_gethackwins()
@@ -1612,6 +1706,24 @@ background-size: cover;
 					<td><a href='#' data-toggle='modal' data-target='#mdl_viewhackathonwinners' onclick='openUcView(this)' data-itemid='" . $out[$i]["id"] . "'>" . date("F d, Y", strtotime($out[$i]["ucdate"])) . "</a></td>
 					<td>" . $universities[$out[$i]["ph_ucwin"]]["name"] . "</td>
 					<td>" . $universities[$out[$i]["int_ucwin"]]["name"] . "</td>
+					<td><button class='btn btn-light text-danger' onclick='openDelete(this)' data-dtid='" . $out[$i]["id"] . "'><i class='fa-solid fa-trash'></i></button></td>
+				</tr>
+			";
+		}
+		return $this->fix_character_encoding($toecho);
+	}
+	function look_gettagiswins()
+	{
+
+		$out = $this->send_get(["tag" => "gettagiswins"]);
+
+		$toecho = "";
+		for ($i = 0; $i < count($out); $i++) {
+			$toecho .= "
+				<tr>
+					<td><a href='#' data-toggle='modal' data-target='#mdl_viewhackathonwinners' onclick='openTagisView(this)' data-itemid='" . $out[$i]["id"] . "'>" . date("F d, Y", strtotime($out[$i]["tagisdate"])) . "</a></td>
+					<td><ul style='list-style-type:none'><li><small class='text-primary'>OVERALL: </small>" . $out[$i]["ph_overall"] . "</li><li><small class='archer_theme' style='color:#6e1c6e;'>ARCHER: </small>" . $out[$i]["ph_archer"] . "</li><li><small style='color:#1c566e;' class=' brawler_theme'>BRAWLER: </small>" . $out[$i]["ph_brawler"] . "</li><li><small style='color:#915d00;' class='shaman_theme'>SHAMAN: </small> " . $out[$i]["ph_shaman"] . "</li><li><small style='color:#910000;' class='swordsman_theme'>SWORDSMAN: </small> " . $out[$i]["ph_swordsman"] . "</li></ul></td>
+					<td><ul><li><small class='text-primary'>OVERALL: </small>" . $out[$i]["int_overall"] . "</li><li><small class='' style='color:#6e1c6e;'>ARCHER: </small>" . $out[$i]["int_archer"] . "</li><li><small class=' brawler_theme' style='color:#1c566e;'>BRAWLER: </small>" . $out[$i]["int_brawler"] . "</li><li><small style='color:#915d00;' class='shaman_theme'>SHAMAN: </small> " . $out[$i]["int_shaman"] . "</li><li><small style='color:#910000;' class='swordsman_theme'>SWORDSMAN: </small> " . $out[$i]["int_swordsman"] . "</li></ul></td>
 					<td><button class='btn btn-light text-danger' onclick='openDelete(this)' data-dtid='" . $out[$i]["id"] . "'><i class='fa-solid fa-trash'></i></button></td>
 				</tr>
 			";

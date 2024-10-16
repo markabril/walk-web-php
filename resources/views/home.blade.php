@@ -285,7 +285,7 @@ WALK Online - Mobile MMORPG
                   <span class="font-cinzel text-lg" style="font-weight:bolder;">University Clash</span>
                   <div class="titlefont "><i class="fas fa-crown" style="margin-right:5px"></i>Academy of Champions
                   </div>
-                  <span class="titlefont text-warning">July 22, 2023</span>
+                  <span class="titlefont text-warning" id="ucDate">July 22, 2023</span>
 
                   <div class="separator-gold-center" style="max-width:400px;min-width:100px;margin-block:1rem;"></div>
                   <span id="uc_label"></span>
@@ -296,6 +296,40 @@ WALK Online - Mobile MMORPG
                   <img class="ucwinner_stage" alt="" />
                </div>
 
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+   <div class="container-fluid tagisbg mb-4" style="
+   ">
+      <div class="tagis-text-wrapper">
+         <h2>Tagis Lakas</h2>
+         <h2>Only the Strongest</h2>
+         <h2>Season |#|</h2>
+      </div>
+
+      <div class="tagis-banner-wrapper left-right-bg-blend">
+         <img src="{{ asset('photos/tagis/bg banner2.png') }}" class="" alt="" />
+         <div class="emblem-wrapper">
+            <div>
+               <img src="{{ asset('photos/tagis/archer emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+            </div>
+            <div>
+               <img src="{{ asset('photos/tagis/swordsman emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+            </div>
+
+            <div>
+               <img src="{{ asset('photos/tagis/overall emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+            </div>
+
+            <div>
+               <img src="{{ asset('photos/tagis/brawler emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+            </div>
+
+            <div>
+               <img src="{{ asset('photos/tagis/shaman emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
             </div>
 
          </div>
@@ -716,6 +750,7 @@ WALK Online - Mobile MMORPG
    </div>
 </div>
 <script>
+   let tagisData;
 
    let currentUC_win = "ph"
    let ucData = []
@@ -936,18 +971,65 @@ WALK Online - Mobile MMORPG
             const ember = "{{asset('photos/basiklaban/sparks.webm')}}";
 
             const spark = "{{asset('photos/basiklaban/sparks.webm')}}";
-            console.log("ucwins -->" + data[0]['ph_ucwin']);
             ucData = data[0];
             // $("#university-name-handler").html(universities[data[0]['ph_ucwin']]['name'])
+            $("#ucDate").html(ucData['ucdate'])
             $(".clip-path-wrapper").css("--theme-color", universities[ucData['ph_ucwin']]['theme'])
             $("#icon-ucwin").prop("src", universities[ucData['ph_ucwin']]['iconImg'])
             $(".backdrop-vid").prop("src", ember)
             $("#uc_label").html("Bakbakan")
             $(".ucwinner_stage").prop("src", stage)
+
+            return $.ajax({
+               type: "get",
+               url: "{{ route('stole_hometagiswins') }}",
+               data: { _token: "{{ csrf_token() }}" },
+            });
+         })
+         .then(async function (data) {
+
+
+            let tagisData = await getTagisData()
+            let season = tagisData['season']
+            let date1 = new Date(season['schedule']['start']);
+            let date2 = new Date();
+            let remainingMonths = parseFloat(date2.getFullYear() - date1.getFullYear()) * 12 + parseFloat(date2.getMonth() - date1.getMonth());
+            let seasonCurr = Math.round(remainingMonths / season['type'])
+            let currentSeason = seasonCurr <= 1 ? 1 : seasonCurr
+            let endingSeasonTime = addMonths(date1, currentSeason + season['type'])
+            let remainingDays = getTotalDays(date2, endingSeasonTime)
+            currentSeason = remainingDays > 7 ? currentSeason + 1 : currentSeason;
+
+
          });
 
    }
 
+
+   async function getTagisData() {
+      try {
+         const response = await fetch("https://regions.walkonlinemobile.com/api/InGameEvents/5");
+         if (!response.ok) {
+            throw new Error('Network response was not ok');
+         }
+         const tagisData = await response.json(); // Parse the JSON response
+         return tagisData; // Return the data for further use
+      } catch (error) {
+         console.error('Error fetching data:', error);
+      }
+   }
+
+
+   function addMonths(x, y) {
+      const result = x
+      result.setMonth(result.getMonth() + y);
+      return result;
+   }
+
+   function getTotalDays(x, y) {
+      const res = x - y;
+      return res / (1000 * 60 * 60 * 24)
+   }
 
 
    // call the function

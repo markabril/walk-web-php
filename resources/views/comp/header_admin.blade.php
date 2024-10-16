@@ -24,6 +24,8 @@
               Homepage Management</a>
             <a class="dropdown-item hackathonwinners" href="{{ route('goto_hackathonwinners') }}"><i
                 class="fa-solid fa-trophy"></i> Hackathon Winners</a>
+            <a class="dropdown-item tagiswinners" href="{{ route('goto_tagiswinners') }}"><i class="fas fa-khanda"></i>
+              Tagis Lakas Manager</a>
             <a class="dropdown-item ucwinners" href="{{ route('goto_ucwinners') }}"><i class="fa-solid fa-crown"></i>
               University Clash Winners</a>
             <a class="dropdown-item newsandupdates" href="{{ route('goto_managenews') }}"><i

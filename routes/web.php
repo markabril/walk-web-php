@@ -22,6 +22,7 @@ Route::get("/termsandconditions", ['uses' => 'functions@goto_terms', 'as' => 'go
 Route::get("/privacypolicy", ['uses' => 'functions@goto_privacypolicy', 'as' => 'goto_privacypolicy']);
 Route::get("/storymode", ['uses' => 'functions@fly_story', 'as' => 'goto_story']);
 Route::get("/lore", ['uses' => 'functions@fly_lore_c1', 'as' => 'goto_lore_c1']);
+Route::get("/tagislakashistory", ['uses' => 'functions@fly_tagislakaswinners', 'as' => 'goto_tagislakaswinners']);
 Route::get("/hackathonhistory", ['uses' => 'functions@fly_hackwinners', 'as' => 'goto_hackwinners']);
 Route::get("/getfeturedhome", ['uses' => 'functions@look_homefeatured', 'as' => 'stole_homefeatured']);
 Route::get("/getallstorypublicchap", ['uses' => 'functions@look_getallchapterslist', 'as' => 'stole_getallchapterslist']);
@@ -90,6 +91,7 @@ Route::get("/gethomefeatures", ['uses' => 'functions@look_homefeatures', 'as' =>
 Route::get("/gethomebottompnl", ['uses' => 'functions@look_homebottompanel', 'as' => 'stole_homebottompanel']);
 Route::get("/gethomeucwins", ['uses' => 'functions@look_homeucwins', 'as' => 'stole_homeucwins']);
 
+Route::get("/gettagiswinhistory", ['uses' => 'functions@look_gettagiswinshistory', 'as' => 'stole_gettagiswinshistory']);
 Route::get("/gethackwinhistory", ['uses' => 'functions@look_gethackathonwinshistory', 'as' => 'stole_gethackathonwinshistory']);
 Route::get("/getlatestfeatured", ['uses' => 'functions@look_latestfeatured', 'as' => 'stole_latestfeatured']);
 Route::get("/accountsetup", ['uses' => 'functions@look_accountsetup', 'as' => 'fly_accountsetup']);

@@ -48,18 +48,14 @@ WOM Admin - Tagis Lakas Managger
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>University Clash Date</label>
+          <label>Tagis Lakas Date</label>
           <input type="date" id="inp_tagisdate" class="form-control">
         </div>
         <div class="form-group">
           <label>Season</label>
-          <input type="date" id="inp_tagisseason" class="form-control">
+          <input type="number" id="inp_tagisseason" class="form-control">
         </div>
 
-        <div class="form-group">
-          <label>Message</label>
-          <textarea class="form-control" id="inp_tagismessage" rows="3"></textarea>
-        </div>
 
 
         <div class="row">
@@ -156,6 +152,8 @@ WOM Admin - Tagis Lakas Managger
       <div class="modal-body">
         <label>Tagis Lakas Date</label>
         <h4 id="lbl_tagisdate">.</h4>
+        <label>Tagis Lakas Season</label>
+        <h4 id="lbl_season">.</h4>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -216,10 +214,13 @@ WOM Admin - Tagis Lakas Managger
         </button>
       </div>
       <div class="modal-body">
-
         <div class="form-group">
-          <label>Tagis Lakas Date</label>
+          <label>Date:</label>
           <input type="date" id="inpedit_tagisdate" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Tagis Lakas Season</label>
+          <input type="number" id="inpedit_tagisseason" class="form-control">
         </div>
         <div class="form-group">
           <label>Message</label>
@@ -322,7 +323,7 @@ WOM Admin - Tagis Lakas Managger
   function saveTagisChanges() {
     showload(true);
 
-    let val_tagisseason = $("#inpedit_tagisdate").val();
+    let val_tagisseason = $("#inpedit_tagisseason").val();
     let val_tagisdate = $("#inpedit_tagisdate").val();
     let val_tagismessage = $("#inpedit_tagismessage").val();
     let val_ph_overall = $("#inpedit_ph_tagiswin_overall").val();
@@ -336,20 +337,31 @@ WOM Admin - Tagis Lakas Managger
     let val_int_brawler = $("#inpedit_int_tagiswin_brawler").val();
     let val_int_shaman = $("#inpedit_int_tagiswin_shaman").val();
     let val_int_swordsman = $("#inpedit_int_tagiswin_swordsman").val();
-
+    console.log(val_ph_archer,
+      val_ph_overall,
+      val_ph_archer,
+      val_ph_brawler,
+      val_ph_shaman,
+      val_ph_swordsman,
+      val_int_overall,
+      val_int_archer,
+      val_int_brawler,
+      val_int_shaman,
+      val_int_swordsman,
+      val_tagisseason
+    )
     if (
-      val_tagisseason &
-      val_tagisdate &
-      val_tagismessage &
-      val_ph_overall &
-      val_ph_archer &
-      val_ph_brawler &
-      val_ph_shaman &
-      val_ph_swordsman &
-      val_int_overall &
-      val_int_archer &
-      val_int_brawler &
-      val_int_shaman &
+      val_tagisseason &&
+      val_tagismessage &&
+      val_ph_overall &&
+      val_ph_archer &&
+      val_ph_brawler &&
+      val_ph_shaman &&
+      val_ph_swordsman &&
+      val_int_overall &&
+      val_int_archer &&
+      val_int_brawler &&
+      val_int_shaman &&
       val_int_swordsman
     ) {
       $.ajax({
@@ -400,19 +412,20 @@ WOM Admin - Tagis Lakas Managger
       success: function (data) {
         hideload(true);
         data = JSON.parse(data);
+        $("#lbl_tagisseason").html(formatDate(data[0]["tagisseason"]));
         $("#lbl_tagisdate").html(formatDate(data[0]["tagisdate"]));
-        $("#lbl_ucmessage").html(data[0]["ucmsg"]);
-        $("#ph_overall").html(universities[data[0]["ph_overall"]].name);
-        $("#ph_archer").html(universities[data[0]["ph_archer"]].name);
-        $("#ph_brawler").html(universities[data[0]["ph_brawler"]].name);
-        $("#ph_shaman").html(universities[data[0]["ph_shaman"]].name);
-        $("#ph_swordsman").html(universities[data[0]["ph_swordsman"]].name);
+        $("#lbl_ucmessage").html(data[0]["tagismsg"]);
+        $("#ph_overall").html(data[0]["ph_overall"]);
+        $("#ph_archer").html(data[0]["ph_archer"]);
+        $("#ph_brawler").html(data[0]["ph_brawler"]);
+        $("#ph_shaman").html(data[0]["ph_shaman"]);
+        $("#ph_swordsman").html(data[0]["ph_swordsman"]);
 
-        $("#int_overall").html(universities[data[0]["int_overall"]].name);
-        $("#int_archer").html(universities[data[0]["int_archer"]].name);
-        $("#int_brawler").html(universities[data[0]["int_brawler"]].name);
-        $("#int_shaman").html(universities[data[0]["int_shaman"]].name);
-        $("#int_swordsman").html(universities[data[0]["int_swordsman"]].name);
+        $("#int_overall").html(data[0]["int_overall"]);
+        $("#int_archer").html(data[0]["int_archer"]);
+        $("#int_brawler").html(data[0]["int_brawler"]);
+        $("#int_shaman").html(data[0]["int_shaman"]);
+        $("#int_swordsman").html(data[0]["int_swordsman"]);
 
 
 
@@ -471,8 +484,9 @@ WOM Admin - Tagis Lakas Managger
     showload(true);
     let data = {
       _token: "{{ csrf_token() }}",
+      vl_tagisseason: $("#inp_tagisseason").val(),
       vl_tagisdate: $("#inp_tagisdate").val(),
-      vl_tagismessage: $("#inp_tagismessage").val(),
+      vl_tagismsg: $("#inp_msg").val(),
 
       vl_ph_tagiswin_overall: $("#inp_ph_tagiswin_overall").val(),
       vl_ph_tagiswin_archer: $("#inp_ph_tagiswin_archer").val(),
@@ -496,7 +510,7 @@ WOM Admin - Tagis Lakas Managger
           say(response);
           // alert(response);
           $("#mdl_addwinner").modal("hide");
-          $("#inp_ph_tagiswin_overall, inp_tagisdate, inp_tagismessage, inp_ph_tagiswin_archer,inp_ph_tagiswin_brawler,inp_ph_tagiswin_shaman,inp_ph_tagiswin_swordsman,inp_int_tagiswin_overall,inp_int_tagiswin_archer,inp_int_tagiswin_brawler,inp_int_tagiswin_shaman,inp_int_tagiswin_swordsman").val();
+          $("#inp_ph_tagiswin_overall, inp_tagisseason, inp_tagisdate, inp_ph_tagiswin_archer,inp_ph_tagiswin_brawler,inp_ph_tagiswin_shaman,inp_ph_tagiswin_swordsman,inp_int_tagiswin_overall,inp_int_tagiswin_archer,inp_int_tagiswin_brawler,inp_int_tagiswin_shaman,inp_int_tagiswin_swordsman").val();
 
           loadTagisData();
           hideload(true);

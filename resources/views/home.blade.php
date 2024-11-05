@@ -257,6 +257,7 @@ WALK Online - Mobile MMORPG
    margin:0px !important;
    height:500px;
    margin-bottom:100px;
+   display:none;
    ">
       <div class="university-clash-wrapper">
          <div class="uc-image left-right-vignette">
@@ -302,37 +303,75 @@ WALK Online - Mobile MMORPG
       </div>
    </div>
 
-   <div class="container-fluid tagisbg mb-4" style="
-   ">
+   <div class="container-fluid tagisbg mb-4" style="display:none">
+
       <div class="tagis-text-wrapper">
-         <h2>Tagis Lakas</h2>
-         <h2>Only the Strongest</h2>
-         <h2>Season |#|</h2>
+         <span class="tagis-title">Tagis Lakas</span>
+         <span class="tagis-tag">Only the Strongest</span>
+         <span class="tagis-season">Season |#|</span>
       </div>
 
       <div class="tagis-banner-wrapper left-right-bg-blend">
-         <img src="{{ asset('photos/tagis/bg banner2.png') }}" class="" alt="" />
+         <div class="tagis-next-end-season littext">
+            <span id="remaining-days">40 Days</span>
+         </div>
+         <img class="tagis-banner-image" src="{{ asset('photos/tagis/bg banner2.png') }}" class="" alt="" />
          <div class="emblem-wrapper">
-            <div>
+            <div class="emblem-holder" style="padding-block-end:5rem;">
                <img src="{{ asset('photos/tagis/archer emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+               <div class="emblem-overlay" style="padding-block-end:7rem;">
+                  <p id="lbl_tagis_archer">Name</p>
+               </div>
+               <div class="emblem-name">
+                  Archer
+               </div>
             </div>
-            <div>
+            <div class="emblem-holder" style="padding-block-start:2rem;">
                <img src="{{ asset('photos/tagis/swordsman emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+               <div class="emblem-overlay">
+                  <p id="lbl_tagis_swordsman">Name</p>
+               </div>
+               <div class="emblem-name">
+                  Swordsman
+               </div>
             </div>
 
-            <div>
+            <div class="emblem-holder">
                <img src="{{ asset('photos/tagis/overall emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+               <div class="emblem-overlay">
+                  <p id="lbl_tagis_overall">Name</p>
+
+               </div>
+               <div class="emblem-name">
+                  Overall
+               </div>
             </div>
 
-            <div>
+            <div class="emblem-holder" style="padding-block-start:2rem;">
                <img src="{{ asset('photos/tagis/brawler emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+               <div class="emblem-overlay">
+                  <p id="lbl_tagis_brawler">Name</p>
+               </div>
+               <div class="emblem-name">
+                  Brawler
+               </div>
             </div>
 
-            <div>
+            <div class="emblem-holder" style="padding-block-end:5rem;">
                <img src="{{ asset('photos/tagis/shaman emblem.png') }}" class="z-[0] h-2/3 icon-shadow" alt="" />
+               <div class="emblem-overlay" style="padding-block-end:7rem;">
+                  <p id="lbl_tagis_shaman">Name</p>
+               </div>
+               <div class="emblem-name">
+                  Shaman
+               </div>
             </div>
 
          </div>
+      </div>
+      <div class="tagis-redirect">
+         <a href="{{ route('goto_tagislakaswinners') }}"><small><i class="fas fa-arrow-right"></i>Tagis Lakas Previous
+               Champions</small></a>
       </div>
    </div>
 </div>
@@ -964,8 +1003,8 @@ WALK Online - Mobile MMORPG
          .then(function (data) {
             data = JSON.parse(data);
             console.log(data)
-            if (data.length == 0) {
-               $(".universitybg").css("display", "none");
+            if (data.length != 0) {
+               $(".universitybg").css("display", "block");
             }
             const stage = "{{asset('photos/basiklaban/Stage.png')}}";
             const ember = "{{asset('photos/basiklaban/sparks.webm')}}";
@@ -987,19 +1026,36 @@ WALK Online - Mobile MMORPG
             });
          })
          .then(async function (data) {
+            data = JSON.parse(data);
+            if (data.length != 0) {
+               $(".tagisbg").css("display", "block");
+            }
+            console.log(data)
+            $(".tagis-season").html("Season " + data[0]['tagisseason'])
+            $("#lbl_tagis_overall").html(data[0]['ph_overall'])
+            $("#lbl_tagis_archer").html(data[0]['ph_archer'])
+            $("#lbl_tagis_brawler").html(data[0]['ph_brawler'])
+            $("#lbl_tagis_shaman").html(data[0]['ph_shaman'])
+            $("#lbl_tagis_swordsman").html(data[0]['ph_swordsman'])
 
 
             let tagisData = await getTagisData()
             let season = tagisData['season']
             let date1 = new Date(season['schedule']['start']);
             let date2 = new Date();
-            let remainingMonths = parseFloat(date2.getFullYear() - date1.getFullYear()) * 12 + parseFloat(date2.getMonth() - date1.getMonth());
+            let remainingMonths = (date2.getFullYear() - date1.getFullYear()) * 12;
+            remainingMonths -= date1.getMonth();
+            remainingMonths += date2.getMonth();
+            if (date2.getDate() < date1.getDate()) {
+               remainingMonths--;
+            }
             let seasonCurr = Math.round(remainingMonths / season['type'])
-            let currentSeason = seasonCurr <= 1 ? 1 : seasonCurr
-            let endingSeasonTime = addMonths(date1, currentSeason + season['type'])
+            let seasonUnrounded = remainingMonths / season['type']
+            console.log(seasonUnrounded)
+            let currentSeason = seasonUnrounded >= seasonCurr ? seasonCurr + 1 : seasonCurr
+            let endingSeasonTime = addMonths(date1, currentSeason * season['type'])
             let remainingDays = getTotalDays(date2, endingSeasonTime)
-            currentSeason = remainingDays > 7 ? currentSeason + 1 : currentSeason;
-
+            $("#remaining-days").html("Season " + (currentSeason) + " Ends after " + parseInt(remainingDays) + " Day" + (remainingDays > 1 ? 's' : ''))
 
          });
 
@@ -1027,8 +1083,8 @@ WALK Online - Mobile MMORPG
    }
 
    function getTotalDays(x, y) {
-      const res = x - y;
-      return res / (1000 * 60 * 60 * 24)
+      const res = y - x;
+      return Math.ceil(res / (1000 * 60 * 60 * 24));
    }
 
 

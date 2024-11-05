@@ -142,6 +142,10 @@ class functions extends Controller
 	{
 		return view("hackwinhistory");
 	}
+	public function fly_tagislakaswinners()
+	{
+		return view("tagiswinhistory");
+	}
 	public function look_accountsetup()
 	{
 		return view("admin_accountsetup");
@@ -393,8 +397,6 @@ class functions extends Controller
 			"int_shaman",
 			"int_swordsman"
 		];
-
-
 		if (count($out) != 0) {
 
 			foreach ($fields as $field) {
@@ -1302,6 +1304,82 @@ background-size: cover;
 
 		return $toecho;
 	}
+
+	public function look_gettagiswinshistory()
+	{
+		$out = $this->send_get(["tag" => "gettagiswinshistory"]);
+
+		$toecho = "";
+		for ($i = 0; $i < count($out); $i++) {
+			$out[0]["tagismsg"] = "<pre class='text-light readable m-0 p-0'>" . $this->fix_character_encoding($out[$i]["tagismsg"]) . "</pre>";
+
+			$out[$i]["ph_archer"] = $this->fix_character_encoding($out[$i]["ph_archer"]);
+			$out[$i]["ph_brawler"] = $this->fix_character_encoding($out[$i]["ph_brawler"]);
+			$out[$i]["ph_shaman"] = $this->fix_character_encoding($out[$i]["ph_shaman"]);
+			$out[$i]["ph_swordsman"] = $this->fix_character_encoding($out[$i]["ph_swordsman"]);
+			$out[$i]["ph_overall"] = $this->fix_character_encoding($out[$i]["ph_overall"]);
+
+			$out[$i]["int_archer"] = $this->fix_character_encoding($out[$i]["int_archer"]);
+			$out[$i]["int_brawler"] = $this->fix_character_encoding($out[$i]["int_brawler"]);
+			$out[$i]["int_shaman"] = $this->fix_character_encoding($out[$i]["int_shaman"]);
+			$out[$i]["int_swordsman"] = $this->fix_character_encoding($out[$i]["int_swordsman"]);
+			$out[$i]["int_overall"] = $this->fix_character_encoding($out[$i]["int_overall"]);
+
+			if ($i == 0) {
+				$toecho .= "<h3 class='littext titlefont mt-5 mb-5'>SEASONAL CHAMPIONS</h3>";
+			} else if ($i == 1) {
+
+				$toecho .= "<h3 class='littext titlefont mt-5 mb-5'>PREVIOUS SEASONS CHAMPIONS</h3>";
+			}
+			$cocoa = ($i == 0 ? asset('photos/poster/award.jpg') : "");
+
+			$toecho .= '
+			
+			<div class="card ' . ($i == 0 ? "card-simple" : "card-simple") . ' mb-3" style="' . ($i == 0 ? "text-shadow: 0px 2px 10px black;" : "") . '">
+        
+			<div class="card-body" style="background: url(' . "'" . $cocoa . "'" . '); background-size:cover; background-repeat:no-repeat; background-position: right;">
+				<div class="row">
+	
+					<div class="col-sm-12">
+						<h5>' . date("F d, Y", strtotime($out[$i]["tagisdate"])) . '</h5>
+					</div>
+	
+					<div class="col-sm-4">
+					<h6>Philippines</h6>
+						<ul style="list-style-type:none">
+							<li>' . '<i class="fas fa-trophy" style="width: 30px;padding:5px;"></i>' . $out[$i]["ph_overall"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/archer_full.png') . '" style="width: 30px;"> ' . $out[$i]["ph_archer"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/brawler_full.png') . '" style="width: 30px;"> ' . $out[$i]["ph_brawler"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/shaman_full.png') . '" style="width: 30px;"> ' . $out[$i]["ph_shaman"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/swordsman_full.png') . '" style="width: 30px;"> ' . $out[$i]["ph_swordsman"] . '</li>
+						</ul>
+					</div>
+					<div class="col-sm-4">
+					<h6>International</h6>
+						<ul style="list-style-type:none">
+							<li>' . '<i class="fas fa-trophy" style="width: 30px;padding:5px;"></i>' . $out[$i]["int_overall"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/archer_full.png') . '" style="width: 30px;"> ' . $out[$i]["int_archer"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/brawler_full.png') . '" style="width: 30px;"> ' . $out[$i]["int_brawler"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/shaman_full.png') . '" style="width: 30px;"> ' . $out[$i]["int_shaman"] . '</li>
+							<li>' . '<img loading="lazy" src="' . asset('photos/icons/swordsman_full.png') . '" style="width: 30px;"> ' . $out[$i]["int_swordsman"] . '</li>
+						</ul>
+					</div>
+	
+					<div class="col-sm-12">
+					' . $out[0]["tagismsg"] . '
+					</div>
+				</div>
+			</div>
+	
+		 </div>
+
+		 
+
+			';
+		}
+
+		return $toecho;
+	}
 	public function look_homecoverphoto()
 	{
 		$out = $this->send_get(["tag" => "homecoverphoto"]);
@@ -1648,6 +1726,7 @@ background-size: cover;
 	{
 		return $this->send([
 			"tag" => "addnewtagiswin",
+			"vl_tagisseason" => $this->sdmenc($req["vl_tagisseason"]),
 			"vl_tagisdate" => $this->sdmenc($req["vl_tagisdate"]),
 			"vl_tagismessage" => $this->sdmenc($req["vl_tagismessage"]),
 			"vl_ph_tagiswin_overall" => $this->sdmenc($req["vl_ph_tagiswin_overall"]),
@@ -1722,8 +1801,9 @@ background-size: cover;
 			$toecho .= "
 				<tr>
 					<td><a href='#' data-toggle='modal' data-target='#mdl_viewhackathonwinners' onclick='openTagisView(this)' data-itemid='" . $out[$i]["id"] . "'>" . date("F d, Y", strtotime($out[$i]["tagisdate"])) . "</a></td>
+					<td>" . $out[$i]["tagisseason"] . "</td>
 					<td><ul style='list-style-type:none'><li><small class='text-primary'>OVERALL: </small>" . $out[$i]["ph_overall"] . "</li><li><small class='archer_theme' style='color:#6e1c6e;'>ARCHER: </small>" . $out[$i]["ph_archer"] . "</li><li><small style='color:#1c566e;' class=' brawler_theme'>BRAWLER: </small>" . $out[$i]["ph_brawler"] . "</li><li><small style='color:#915d00;' class='shaman_theme'>SHAMAN: </small> " . $out[$i]["ph_shaman"] . "</li><li><small style='color:#910000;' class='swordsman_theme'>SWORDSMAN: </small> " . $out[$i]["ph_swordsman"] . "</li></ul></td>
-					<td><ul><li><small class='text-primary'>OVERALL: </small>" . $out[$i]["int_overall"] . "</li><li><small class='' style='color:#6e1c6e;'>ARCHER: </small>" . $out[$i]["int_archer"] . "</li><li><small class=' brawler_theme' style='color:#1c566e;'>BRAWLER: </small>" . $out[$i]["int_brawler"] . "</li><li><small style='color:#915d00;' class='shaman_theme'>SHAMAN: </small> " . $out[$i]["int_shaman"] . "</li><li><small style='color:#910000;' class='swordsman_theme'>SWORDSMAN: </small> " . $out[$i]["int_swordsman"] . "</li></ul></td>
+					<td><ul style='list-style-type:none'><li><small class='text-primary'>OVERALL: </small>" . $out[$i]["int_overall"] . "</li><li><small class='' style='color:#6e1c6e;'>ARCHER: </small>" . $out[$i]["int_archer"] . "</li><li><small class=' brawler_theme' style='color:#1c566e;'>BRAWLER: </small>" . $out[$i]["int_brawler"] . "</li><li><small style='color:#915d00;' class='shaman_theme'>SHAMAN: </small> " . $out[$i]["int_shaman"] . "</li><li><small style='color:#910000;' class='swordsman_theme'>SWORDSMAN: </small> " . $out[$i]["int_swordsman"] . "</li></ul></td>
 					<td><button class='btn btn-light text-danger' onclick='openDelete(this)' data-dtid='" . $out[$i]["id"] . "'><i class='fa-solid fa-trash'></i></button></td>
 				</tr>
 			";

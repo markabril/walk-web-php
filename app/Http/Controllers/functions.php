@@ -253,6 +253,7 @@ class functions extends Controller
 			"tag" => "saveitemchanges",
 			"val_title" => $this->sdmenc($req["val_title"]),
 			"val_description" => $this->sdmenc($req["val_description"]),
+			"val_type" => $this->sdmenc($req["val_type"]),
 			"currfeatitemid" => $this->sdmenc($req["currfeatitemid"])
 		], true);
 
@@ -264,6 +265,7 @@ class functions extends Controller
 		if (count($out) != 0) {
 			$out[0]["item_title"] = $this->fix_character_encoding($out[0]["item_title"]);
 			$out[0]["item_desc"] = $this->fix_character_encoding($out[0]["item_desc"]);
+			$out[0]["type"] = $this->fix_character_encoding($out[0]["type"]);
 		}
 
 		return json_encode($out);
@@ -488,6 +490,7 @@ class functions extends Controller
 
 			$out = $this->send([
 				"tag" => "savenewschanges",
+				"tba" => $this->sdmenc($req["tba"]),
 				"txt_headline" => $this->sdmenc($req["txt_headline"]),
 				"txt_description" => $this->sdmenc($req["txt_description"]),
 				"itemid" => $this->sdmenc($req["itemid"]),
@@ -497,6 +500,7 @@ class functions extends Controller
 			$out = $this->send([
 				"tag" => "savenewschanges",
 				"txt_headline" => $this->sdmenc($req["txt_headline"]),
+				"tba" => $this->sdmenc($req["tba"]),
 				"txt_description" => $this->sdmenc($req["txt_description"]),
 				"itemid" => $this->sdmenc($req["itemid"]),
 				"coverphoto" => $this->sdmenc("")
@@ -524,6 +528,7 @@ class functions extends Controller
 		return $this->send([
 			"tag" => "saveupdatechanges",
 			"val_version" => $this->sdmenc($req["val_version"]),
+			"val_tba" => $this->sdmenc($req["val_tba"]),
 			"val_title" => $this->sdmenc($req["val_title"]),
 			"val_description" => $this->sdmenc($req["val_description"]),
 			"val_releaseDate" => $this->sdmenc($req["val_releaseDate"]),
@@ -767,14 +772,10 @@ class functions extends Controller
 				$out[$i]["item_cover"] = asset("update_items_images/") . "/" . $out[$i]["item_cover"];
 				$out[$i]["item_desc"] = $this->fix_character_encoding($out[$i]["item_desc"]);
 				$out[$i]["item_title"] = $this->fix_character_encoding($out[$i]["item_title"]);
-
-
-
 			}
 
-
 		}
-		// $out[0]["releasedate"] = date("F d, Y", strtotime(	$out[0]["releasedate"] ));
+		// // $out[0]["releasedate"] = date("F d, Y", strtotime(	$out[0]["releasedate"] ));
 		return json_encode($out);
 	}
 	public function fire_deleteupdaterec(Request $req)
@@ -805,17 +806,16 @@ class functions extends Controller
 			$out[$i]["headline"] = $this->fix_character_encoding($out[$i]["headline"]);
 			$out[$i]["details"] = $this->fix_character_encoding($out[$i]["details"]);
 			$out[$i]["version"] = $this->fix_character_encoding($out[$i]["version"]);
+			$out[$i]["coverphoto"] = "url('" . asset("update_covers/") . "/" . $out[$i]["coverphoto"] . "')";
 
 			if ($colonum == "6") {
 				$toecho .= "
-				<div class='col-sm-" . $colonum . "'>
+				<div class='col-sm-" . $colonum . " '>
 					<a target='_blank' href='" . route("goto_updateoverview") . "?updateno=" . $out[$i]["id"] . "'>
-					<div class='card card-simple mb-2' style='border-left: 1px solid  #5FBACE !important;'>
+					<div class='card card-simple mb-2' style='border-left: 1px solid  #5FBACE !important;background-position:center center;background-size:cover;background-image:url(" . $out[$i]["coverphoto"] . ")'>
 					<div class='card-body'>
-
 					<p class='mb-0 text-muted'>" . date("F d, y g:i a", strtotime($out[$i]["dateposted"])) . "</p>
 					<p class='mb-0 text-light'><strong>" . $out[$i]["version"] . "</strong> — " . $out[$i]["headline"] . "</p>
-					
 					</div>
 					</div>
 					</a>
@@ -826,7 +826,7 @@ class functions extends Controller
 			} else {
 				$toecho .= "
 				<div class='col-sm-" . $colonum . "'>
-				<div class='card card-simple mb-5' style='border-left: 3px solid   #5FBACE !important;'>
+				<div class='card card-simple mb-5 update_item'  style='--cover_url:" . $out[$i]["coverphoto"] . ";border-left: 3px solid  #5FBACE !important;'>
 					<div class='card-body'>
 					<p class='mb-0 float-right'>" . date("F d, y g:i a", strtotime($out[$i]["dateposted"])) . "</p>
 						<h2>" . $out[$i]["version"] . "</h2>
@@ -871,8 +871,6 @@ class functions extends Controller
 	{
 
 
-
-
 		$validator = Validator::make($req->all(), [
 			'item_cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:30120',
 		]);
@@ -903,12 +901,13 @@ class functions extends Controller
 				"item_cover" => $this->sdmenc($fname),
 				"item_title" => $this->sdmenc($req["item_title"]),
 
-				"item_description" => $this->sdmenc($req["item_description"])
+				"item_description" => $this->sdmenc($req["item_description"]),
+				"type" => $this->sdmenc($req["type"])
 			], true);
 			return $out;
 
 		} else {
-			return "error";
+			return $result;
 		}
 
 
@@ -927,7 +926,7 @@ class functions extends Controller
 					<td>" . date("F d, y", strtotime($out[$i]["dateposted"])) . "</td>
 					<td><a href='#' onclick='editUpdateContents(this)' data-itemid='" . $out[$i]["id"] . "'>" . $this->fix_character_encoding($out[$i]["headline"]) . "</td>
 					<td>" . $out[$i]["version"] . "</td>
-					<td>" . date("F d, y", strtotime($out[$i]["releasedate"])) . "</td>
+					<td>" . ($out[$i]["tba"] == 1 ? "TBA" : date("F d, y", strtotime($out[$i]["releasedate"]))) . "</td>
 					<td><button data-recordid='" . $out[$i]["id"] . "' onclick='openDeleteUpdateRecordConfirmation(this)' class='btn btn-light text-danger'><i class='fa-sharp fa-solid fa-trash'></button></td>
 				</tr>
 			";
@@ -965,6 +964,7 @@ class functions extends Controller
 				"updatetitle" => $this->sdmenc($req["updatetitle"]),
 				"updatedescription" => $this->sdmenc($req["updatedescription"]),
 				"releasedate" => $this->sdmenc($req["releasedate"]),
+				"tba" => $this->sdmenc($req["tba"]),
 				"versionnumber" => $this->sdmenc($req["versionnumber"])
 			], true);
 

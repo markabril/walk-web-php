@@ -179,7 +179,10 @@ WOM Admin - News
             <div class="form-group">
               <label>RELEASE DATE</label>
               <input type="date" class="form-control" id="inp_update_releasedate">
+              <label><input type="checkbox" id="inp_update_releasedate_tba" onclick="tba(this)"> To Be Announced</label>
             </div>
+
+
 
 
 
@@ -193,7 +196,8 @@ WOM Admin - News
 
           <img style="height:100px;" src="" id="prev_img">
           <button class="btn btn-light text-primary float-right btn-sm" data-toggle="modal"
-            data-target="#mdl_editupdatemodal"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+            data-target="#mdl_editupdatemodal"><i class="fa-solid fa-pen-to-square"></i>
+            Edit</button>
           <h5 id="prev_title">Title</h5>
           <div style="overflow:auto; max-height:100px;">
             <span>Version: <strong id="prev_version">June 21, 2020</strong></span><br>
@@ -244,7 +248,8 @@ WOM Admin - News
           <div class="form-group">
             <label>COVER PHOTO</label>
             <input type="file" id="inp_item_cover" class="form-control">
-            <label><input type="checkbox" value="reduce" id="inp_item_reduce"> Reduce image quality for faster loading
+            <label><input type="checkbox" value="reduce" id="inp_item_reduce"> Reduce image quality
+              for faster loading
               time</label>
           </div>
 
@@ -256,6 +261,16 @@ WOM Admin - News
           <div class="form-group">
             <label>Description</label>
             <textarea class="form-control" rows="8" id="inp_item_description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Patch Type</label>
+            <select id="inp_item_type" class="form-control">
+              <option value="0">Class</option>
+              <option value="1">Skill</option>
+              <option value="2">Mobs</option>
+              <option value="3">Equipment</option>
+              <option value="4">Miscellaneous</option>
+            </select>
           </div>
         </div>
 
@@ -330,6 +345,7 @@ WOM Admin - News
         <div class="form-group">
           <label>RELEASE DATE</label>
           <input type="date" class="form-control" id="inpedit_releasedate">
+          <label><input type="checkbox" id="inpedit_releasedate_tba" onclick="edittba(this)"> To Be Announced</label>
         </div>
 
       </div>
@@ -417,7 +433,7 @@ WOM Admin - News
 
         <div class="form-group">
           <label>Headline</label>
-          <input type="text" id="inpeditnews_headline" class="form-control">
+          <input type="text" id="inpeditnews_haedline" class="form-control">
         </div>
         <div class="form-group">
           <label>COVER PHOTO</label>
@@ -470,6 +486,16 @@ WOM Admin - News
           <label>Description</label>
           <textarea class="form-control" rows="8" id="inpedititem_description"></textarea>
         </div>
+        <div class="form-group">
+          <label>Patch Type</label>
+          <select id="inpedititem_type" class="form-control">
+            <option value="0">Class</option>
+            <option value="1">Skill</option>
+            <option value="2">Mobs</option>
+            <option value="3">Equipment</option>
+            <option value="4">Miscellaneous</option>
+          </select>
+        </div>
       </div>
 
       <div class="modal-footer">
@@ -496,9 +522,10 @@ WOM Admin - News
     showload(true);
     var val_title = $("#inpedititem_title").val();
     var val_description = $("#inpedititem_description").val();
+    var val_type = $("#inpedititem_type").val();
 
 
-    if (val_title && val_description) {
+    if (val_title && val_description && val_type) {
       $.ajax({
         type: "post",
         url: "{{ route('shoot_saveitemchanges') }}",
@@ -506,6 +533,7 @@ WOM Admin - News
           _token: "{{ csrf_token() }}",
           val_title: val_title,
           val_description: val_description,
+          val_type: val_type,
           currfeatitemid: currfeatitemid
         },
         success: function (data) {
@@ -534,6 +562,7 @@ WOM Admin - News
         hideload();
         $("#inpedititem_title").val(data[0]["item_title"]);
         $("#inpedititem_description").val(data[0]["item_desc"]);
+        $("#inpedititem_type").val(data[0]["type"]);
       }
     })
   }
@@ -563,9 +592,9 @@ WOM Admin - News
       ffreduce = 0;
     }
 
-    var coverphoto = $("#inp_newscoverimg")[0].files[0];
-    var txt_headline = $("#inpeditnews_headline").val();
-    var txt_description = $("#inpeditnews_description").val();
+    let coverphoto = $("#inp_newscoverimg")[0].files[0];
+    let txt_headline = $("#inpeditnews_headline").val();
+    let txt_description = $("#inpeditnews_description").val();
 
 
     let formData = new FormData();
@@ -635,6 +664,13 @@ WOM Admin - News
     var val_title = $("#inpendit_title").val();
     var val_description = $("#inpedit_description").val();
     var val_releaseDate = $("#inpedit_releasedate").val();
+    let isTba = $("#inpedit_releasedate_tba").prop("checked");
+    console.log(isTba)
+    if (isTba) {
+      isTba = 1;
+    } else {
+      isTba = 0;
+    }
 
     if (val_description && val_title && val_version && val_releaseDate) {
       $.ajax({
@@ -644,6 +680,7 @@ WOM Admin - News
           _token: "{{ csrf_token() }}",
           val_version: val_version,
           val_title: val_title,
+          val_tba: isTba,
           val_description: val_description,
           val_releaseDate: val_releaseDate,
           currentupdateid: currentUpdateId
@@ -735,18 +772,19 @@ WOM Admin - News
         success: function (data) {
           hideload();
           data = JSON.parse(data);
-          $releaseDate = data[0]["releasedate"]
+          releaseDate = new Date(data[0]["releasedate"])
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
           $("#prev_img").prop("src", data[0]["coverphoto"]);
           $("#prev_title").html(data[0]["headline"]);
           $("#prev_version").html(data[0]["version"]);
-          $("#prev_releasedate").html(date("F j, Y", strtotime($releaseDate)));
+          $("#prev_releasedate").html(data[0]["tba"] == 1 ? "To Be Announced" : releaseDate.toLocaleDateString('en-US', options));
           $("#prev_description").html(data[0]["details"]);
-
 
           $("#inpedit_version").val(data[0]["version"]);
           $("#inpendit_title").val(data[0]["headline"]);
           $("#inpedit_description").val(data[0]["details"]);
-          $("#inpedit_releasedate").val(data[0]["releasedate"]);
+          $("#inpedit_releasedate").val(data[0]["releasedate"]).prop("disabled", data[0]["tba"] == 1 ? true : false);
+          $("#inpedit_releasedate_tba").prop("checked", data[0]["tba"] == 1 ? true : false);
 
 
 
@@ -770,6 +808,28 @@ WOM Admin - News
     }
 
 
+  }
+
+
+  function tba(e) {
+    const today = new Date().toISOString().split('T')[0];
+    console.log(e.checked)
+    console.log(today)
+    if (e.checked) {
+      $("#inp_update_releasedate").val(today).prop("disabled", true)
+
+    } else {
+      $("#inp_update_releasedate").val("").prop("disabled", false)
+    }
+  }
+  function edittba(e) {
+    const today = new Date().toISOString().split('T')[0];
+    if (e.checked) {
+      $("#inpedit_releasedate").val(today).prop("disabled", true)
+
+    } else {
+      $("#inpedit_releasedate").val("").prop("disabled", false)
+    }
   }
 
 
@@ -812,6 +872,7 @@ WOM Admin - News
     var inp_item_cover = $("#inp_item_cover")[0].files[0];
     var inp_item_title = $("#inp_item_title").val();
     var inp_item_description = $("#inp_item_description").val();
+    var inp_item_type = $("#inp_item_type").val();
 
     formData.append("_token", "{{ csrf_token() }}");
     formData.append("item_id", current_updateid);
@@ -819,8 +880,9 @@ WOM Admin - News
     formData.append("item_title", inp_item_title);
     formData.append("ffreduce", ffreduce);
     formData.append("item_description", inp_item_description);
+    formData.append("type", inp_item_type);
 
-    if (inp_item_cover && inp_item_title && inp_item_description) {
+    if (inp_item_cover && inp_item_title && inp_item_description && inp_item_type) {
       $.ajax({
         type: "post",
         url: "{{ route('shoot_newupdateitem') }}",
@@ -943,12 +1005,19 @@ WOM Admin - News
     var updatetitle = $("#inp_update_title").val();
     var updatedescription = $("#inp_update_description").val();
     var inp_update_releasedate = $("#inp_update_releasedate").val();
+    let tba = $("#inp_update_releasedate_tba").val();
 
 
     if (ffreduce.prop("checked") == true) {
       ffreduce = "1";
     } else {
       ffreduce = 0;
+    }
+
+    if (tba) {
+      tba = 1;
+    } else {
+      tba = 0;
     }
 
     if (inp_update_versionnumber && updatetitle && updatedescription && inp_update_releasedate) {
@@ -961,6 +1030,7 @@ WOM Admin - News
       formData.append("updatetitle", updatetitle);
       formData.append("updatedescription", updatedescription);
       formData.append("releasedate", inp_update_releasedate);
+      formData.append("tba", tba);
 
 
       $.ajax({
